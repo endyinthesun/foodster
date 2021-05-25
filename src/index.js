@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-import {
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Greeting } from "_atoms";
+import RootNavigator from "_navigations";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Greeting name={"user"} />
+    <View>
+      <RootNavigator />
     </View>
   );
 };
