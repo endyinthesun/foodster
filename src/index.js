@@ -1,9 +1,29 @@
-/**
- * @format
- */
+import React, { useState } from "react";
+import {
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from "react-native";
+import { Greeting } from "_atoms";
 
-import { AppRegistry } from "react-native";
-import App from "../App";
-import { name as appName } from "../app.json";
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Greeting name={"user"} />
+    </View>
+  );
+};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
-AppRegistry.registerComponent(appName, () => App);
+export default App;
