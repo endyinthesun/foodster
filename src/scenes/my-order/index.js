@@ -3,10 +3,8 @@ import { SafeAreaView, Text, TouchableHighlight } from "react-native";
 
 const MyOrderScreen = ({ navigation }) => (
   <SafeAreaView>
-    <Text>Screen: Login</Text>
-
     <TouchableHighlight onPress={() => navigation.navigate("Main")}>
-      <Text>Go to home</Text>
+      <Text>My order</Text>
     </TouchableHighlight>
   </SafeAreaView>
 );
