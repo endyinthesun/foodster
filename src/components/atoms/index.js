@@ -1,1 +1,2 @@
-export { default as Greeting } from "./greeting";
+import TabItem from "./tab-item";
+export { TabItem };

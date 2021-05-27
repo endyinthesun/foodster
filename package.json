@@ -44,6 +44,7 @@
   "prettier": {
     "jsxSingleQuote": true,
     "semi": true,
-    "jsxBracketSameLine": false
+    "jsxBracketSameLine": false,
+    "printWidth": 100
   }
 }
