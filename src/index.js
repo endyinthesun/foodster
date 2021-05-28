@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import RootNavigator from "_navigations";
 
-import { Typography, Spacing, Colors, Mixins } from "_styles";
+import { Typo, Spacing, Colors, Mixins } from "_styles";
 
-const { FONT_FAMILY_REGULAR } = Typography;
+const { FONT_FAMILY_REGULAR } = Typo;
 const App = () => {
   return (
-    <View style={styles.container}>
-      <RootNavigator />
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <RootNavigator />
+      </View>
+    </SafeAreaProvider>
   );
 };
 const styles = StyleSheet.create({

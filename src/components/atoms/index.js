@@ -1,2 +1,2 @@
-import TabItem from "./tab-item";
-export { TabItem };
+import Btn from "./btn";
+export { Btn };

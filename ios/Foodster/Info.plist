@@ -55,6 +55,7 @@
 	<array>
 		<string>SFUIDisplay-Medium.ttf</string>
 		<string>SFUIDisplay-Regular.ttf</string>
+		<string>SFUIDisplay-Semibold.ttf</string>
 	</array>
 </dict>
 </plist>

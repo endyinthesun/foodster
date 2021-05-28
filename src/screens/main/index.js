@@ -1,12 +1,20 @@
-import React from "react";
-import { SafeAreaView, Text, TouchableHighlight } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableHighlight, Button, Alert, Pressable, StyleSheet } from "react-native";
+import { Colors } from "_styles";
+import { Btn } from "_atoms";
 
-const MainScreen = ({ navigation }) => (
-  <SafeAreaView>
-    <TouchableHighlight onPress={() => navigation.navigate("Main")}>
-      <Text>Main</Text>
-    </TouchableHighlight>
-  </SafeAreaView>
-);
+function MainScreen({ navigation }) {
+  const [count, setCount] = useState(0);
+  return (
+    <View style={{ padding: 50 }}>
+      <TouchableHighlight onPress={() => navigation.navigate("Main")}>
+        <>
+          <Btn title='btn' handle={() => setCount(count + 1)} type='number' num={"f"} />
+          <Text>{count}</Text>
+        </>
+      </TouchableHighlight>
+    </View>
+  );
+}
 
 export default MainScreen;
