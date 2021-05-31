@@ -3,6 +3,7 @@ import { scaleFont } from "./mixins";
 // FONT FAMILY
 export const FONT_FAMILY_REGULAR = "SFUIDisplay-Regular";
 export const FONT_FAMILY_MEDIUM = "SFUIDisplay-Medium";
+export const FONT_FAMILY_SEMIBOLD = "SFUIDisplay-Semibold";
 
 // FONT WEIGHT
 export const FONT_WEIGHT_REGULAR = "400";

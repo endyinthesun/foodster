@@ -76,6 +76,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+            key={index}
           >
             {Icon}
             <Text

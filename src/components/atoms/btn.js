@@ -20,14 +20,14 @@ export default function Btn({ title, handle, type = "", num = null }) {
       paddingHorizontal: 20,
       borderRadius: 15,
       flexDirection: "row",
-      justifyContent: validNumber || validPrice ? "space-between" : "center",
+      justifyContent: validPrice ? "space-between" : "center",
     },
     btnText: {
       color: WHITE,
       fontSize: FONT_SIZE_16,
+      fontFamily: FONT_FAMILY_SEMIBOLD,
       textTransform: "uppercase",
       textAlign: "center",
-      fontWeight: "100",
     },
     priceContent: {
       flexDirection: "row",

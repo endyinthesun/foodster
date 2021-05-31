@@ -9,7 +9,7 @@ function MainScreen({ navigation }) {
     <View style={{ padding: 50 }}>
       <TouchableHighlight onPress={() => navigation.navigate("Main")}>
         <>
-          <Btn title='btn' handle={() => setCount(count + 1)} type='number' num={"f"} />
+          <Btn title='apply filters' handle={() => setCount(count + 1)} type='number' num={3} />
           <Text>{count}</Text>
         </>
       </TouchableHighlight>
