@@ -1,1 +1,3 @@
-export { default as HelloWorld } from "./hello-world";
+import TopMain from "./top-main";
+
+export { TopMain };

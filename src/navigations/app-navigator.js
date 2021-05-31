@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,16 +27,35 @@ import ProfileScreen from "_screens/profile";
 import { Colors, Typo } from "_styles";
 
 //Styles value
-const { SECONDARY, BLUE } = Colors;
+const { SECONDARY, BLUE, WHITE } = Colors;
 const { FONT_SIZE_12, FONT_FAMILY_REGULAR, FONT_FAMILY_MEDIUM } = Typo;
 
+const styles = StyleSheet.create({
+  nav: {
+    flexDirection: "row",
+    paddingTop: 12,
+    paddingBottom: 6,
+    backgroundColor: WHITE,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tabItemText: {
+    fontSize: FONT_SIZE_12,
+    marginTop: 6,
+  },
+});
 function MyTabBar({ state, descriptors, navigation }) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
   if (focusedOptions.tabBarVisible === false) {
     return null;
   }
   return (
-    <View style={{ flexDirection: "row", paddingTop: 12, paddingBottom: 6 }}>
+    <View style={styles.nav}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -75,16 +94,15 @@ function MyTabBar({ state, descriptors, navigation }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+            style={styles.tabItem}
             key={index}
           >
             {Icon}
             <Text
               style={{
+                ...styles.tabItemText,
                 color: isFocused ? BLUE : SECONDARY,
-                fontSize: FONT_SIZE_12,
                 fontFamily: isFocused ? FONT_FAMILY_MEDIUM : FONT_FAMILY_REGULAR,
-                marginTop: 6,
               }}
             >
               {label}

@@ -1,1 +1,3 @@
-// export { default as HelloWorld } from "./hello-world";
+import SearchField from "./search-field";
+
+export { SearchField };

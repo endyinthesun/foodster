@@ -8,6 +8,7 @@ import RootNavigator from "_navigations";
 import { Typo, Spacing, Colors, Mixins } from "_styles";
 
 const { FONT_FAMILY_REGULAR } = Typo;
+const { BG } = Colors;
 const App = () => {
   return (
     <SafeAreaProvider>
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
   container: {
     fontFamily: FONT_FAMILY_REGULAR,
     flex: 1,
+    backgroundColor: BG,
   },
 });
 
