@@ -13,6 +13,31 @@ const { WHITE, BLUE, PRIMARY } = Colors;
 const { FONT_SIZE_20, FONT_SIZE_16, FONT_FAMILY_BOLD } = Typo;
 const { PADDING_HORIZONTAL } = Spacing;
 
+export default function TopMain({ city }) {
+  const [searchValue, setSearchValue] = useState("");
+  return (
+    <View>
+      <LinearGradient
+        colors={["#FFFDFD", "#FFEFEB", "#FFFFFF"]}
+        locations={[0, 0.5, 1]}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+        style={styles.header}
+      >
+        <Text style={styles.title}>Foodster</Text>
+        <OnTheWayIcon fill={PRIMARY} />
+        <View style={styles.cityBlock}>
+          <PinIcon />
+          <Text style={styles.cityText}>{city}</Text>
+        </View>
+      </LinearGradient>
+      <View style={styles.searchFieldContainer}>
+        <SearchField value={searchValue} updateSearch={setSearchValue} />
+      </View>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   headerContainer: {},
   header: {
@@ -42,27 +67,3 @@ const styles = StyleSheet.create({
     marginTop: -24,
   },
 });
-export default function TopMain({ city }) {
-  const [searchValue, setSearchValue] = useState("");
-  return (
-    <View>
-      <LinearGradient
-        colors={["#FFFDFD", "#FFEFEB", "#FFFFFF"]}
-        locations={[0, 0.5, 1]}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-        style={styles.header}
-      >
-        <Text style={styles.title}>Foodster</Text>
-        <OnTheWayIcon fill={PRIMARY} />
-        <View style={styles.cityBlock}>
-          <PinIcon />
-          <Text style={styles.cityText}>{city}</Text>
-        </View>
-      </LinearGradient>
-      <View style={styles.searchFieldContainer}>
-        <SearchField value={searchValue} updateSearch={setSearchValue} />
-      </View>
-    </View>
-  );
-}

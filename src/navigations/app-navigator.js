@@ -30,25 +30,6 @@ import { Colors, Typo } from "_styles";
 const { SECONDARY, BLUE, WHITE } = Colors;
 const { FONT_SIZE_12, FONT_FAMILY_REGULAR, FONT_FAMILY_MEDIUM } = Typo;
 
-const styles = StyleSheet.create({
-  nav: {
-    flexDirection: "row",
-    paddingTop: 12,
-    paddingBottom: 6,
-    backgroundColor: WHITE,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  tabItemText: {
-    fontSize: FONT_SIZE_12,
-    marginTop: 6,
-  },
-});
 function MyTabBar({ state, descriptors, navigation }) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
   if (focusedOptions.tabBarVisible === false) {
@@ -150,3 +131,23 @@ export default function AppNavigator() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  nav: {
+    flexDirection: "row",
+    paddingTop: 12,
+    paddingBottom: 6,
+    backgroundColor: WHITE,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  tabItem: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  tabItemText: {
+    fontSize: FONT_SIZE_12,
+    marginTop: 6,
+  },
+});
