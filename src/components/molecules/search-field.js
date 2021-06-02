@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, View, Text, StyleSheet } from "react-native";
-import SearchIcon from "_icons/search.svg";
-import { Colors, Typo } from "_styles";
+import SearchIcon from "@icons/search.svg";
+import { Colors, Typo } from "@styles";
 
 const { WHITE } = Colors;
 const { FONT_SIZE_16 } = Typo;

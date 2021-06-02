@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import RootNavigator from "_navigations";
+//navigation
+import RootNavigator from "@navigations";
 
-import { Typo, Spacing, Colors, Mixins } from "_styles";
+//styles
+import { Typo, Spacing, Colors, Mixins } from "@styles";
 
+//styles value
 const { FONT_FAMILY_REGULAR } = Typo;
 const { BG } = Colors;
 
-function App() {
+export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
@@ -26,5 +29,3 @@ const styles = StyleSheet.create({
     backgroundColor: BG,
   },
 });
-
-export default App;

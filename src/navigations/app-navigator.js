@@ -1,109 +1,87 @@
 import React from "react";
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 //SVGs
-import MainIcon from "_icons/main.svg";
-import MainActiveIcon from "_icons/main-active.svg";
-import PlacesIcon from "_icons/places.svg";
-import PlacesActiveIcon from "_icons/places-active.svg";
-import BagIcon from "_icons/bag.svg";
-import BagActiveIcon from "_icons/bag-active.svg";
-import PromoIcon from "_icons/promo.svg";
-import PromoActiveIcon from "_icons/promo-active.svg";
-import UserIcon from "_icons/user.svg";
-import UserActiveIcon from "_icons/user-active.svg";
+import MainIcon from "@icons/main.svg";
+import MainActiveIcon from "@icons/main-active.svg";
+import PlacesIcon from "@icons/places.svg";
+import PlacesActiveIcon from "@icons/places-active.svg";
+import BagIcon from "@icons/bag.svg";
+import BagActiveIcon from "@icons/bag-active.svg";
+import PromoIcon from "@icons/promo.svg";
+import PromoActiveIcon from "@icons/promo-active.svg";
+import UserIcon from "@icons/user.svg";
+import UserActiveIcon from "@icons/user-active.svg";
+import Back from "@icons/back.svg";
+import Search from "@icons/search.svg";
 
 //Screens
-import MainScreen from "_screens/main";
-import RestaurantsScreen from "_screens/restaurants";
-import MyOrderScreen from "_screens/my-order";
-import PromotionsScreen from "_screens/promotions";
-import ProfileScreen from "_screens/profile";
+import {
+  MainScreen,
+  RestaurantsScreen,
+  MyOrderScreen,
+  PromotionsScreen,
+  ProfileScreen,
+  PlacesScreen,
+  MoreDishesScreen,
+} from "@screens";
 
-//Styles
-import { Colors, Typo } from "_styles";
-
-//Styles value
-const { SECONDARY, BLUE, WHITE } = Colors;
-const { FONT_SIZE_12, FONT_FAMILY_REGULAR, FONT_FAMILY_MEDIUM } = Typo;
-
-function MyTabBar({ state, descriptors, navigation }) {
-  const focusedOptions = descriptors[state.routes[state.index].key].options;
-  if (focusedOptions.tabBarVisible === false) {
-    return null;
-  }
-  return (
-    <View style={styles.nav}>
-      {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
-        const label =
-          options.tabBarLabel !== undefined
-            ? options.tabBarLabel
-            : options.title !== undefined
-            ? options.title
-            : route.name;
-
-        const isFocused = state.index === index;
-
-        const onPress = () => {
-          const event = navigation.emit({
-            type: "tabPress",
-            target: route.key,
-            canPreventDefault: true,
-          });
-
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        const onLongPress = () => {
-          navigation.emit({
-            type: "tabLongPress",
-            target: route.key,
-          });
-        };
-        const Icon = isFocused ? options.iconActive : options.icon;
-        return (
-          <TouchableOpacity
-            accessibilityRole='button'
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={styles.tabItem}
-            key={index}
-          >
-            {Icon}
-            <Text
-              style={{
-                ...styles.tabItemText,
-                color: isFocused ? BLUE : SECONDARY,
-                fontFamily: isFocused ? FONT_FAMILY_MEDIUM : FONT_FAMILY_REGULAR,
-              }}
-            >
-              {label}
-            </Text>
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-}
+//Custom bottom bar
+import { BottomBar } from "@organisms";
 
 export default function AppNavigator() {
   const Tab = createBottomTabNavigator();
+  const MainStack = createStackNavigator();
+
+  const MainStackScreen = () => (
+    <MainStack.Navigator>
+      <MainStack.Screen name='Categories' component={MainScreen} options={{ headerShown: false }} />
+      <MainStack.Screen name='Dish' component={PlacesScreen} />
+      <MainStack.Screen
+        name='MoreDishes'
+        component={MoreDishesScreen}
+        title={"Dishes"}
+        options={{
+          title: "Dishes",
+          headerShown: false,
+          // headerStyle: styles.header,
+          // header: ({ scene, previous, navigation }) => {
+          //   const { options } = scene.descriptor;
+          //   const title =
+          //     options.headerTitle !== undefined
+          //       ? options.headerTitle
+          //       : options.title !== undefined
+          //       ? options.title
+          //       : scene.route.name;
+          //   const backBtn = previous ? (
+          //     <Pressable onPress={navigation.goBack}>
+          //       <Back />
+          //     </Pressable>
+          //   ) : undefined;
+          //   return (
+          //     <View style={options.headerStyle}>
+          //       {backBtn}
+          //       <Text>{title}</Text>
+          //       <Search />
+          //     </View>
+          //   );
+          // },
+        }}
+      />
+    </MainStack.Navigator>
+  );
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
-        <Tab.Navigator tabBarVisible={false} tabBar={(props) => <MyTabBar {...props} />}>
+        <Tab.Navigator tabBarVisible={false} tabBar={(props) => <BottomBar {...props} />}>
           <Tab.Screen
             name='Main'
-            component={MainScreen}
+            component={MainStackScreen}
             options={{ icon: <MainIcon />, iconActive: <MainActiveIcon /> }}
           />
           <Tab.Screen
@@ -131,23 +109,3 @@ export default function AppNavigator() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  nav: {
-    flexDirection: "row",
-    paddingTop: 12,
-    paddingBottom: 6,
-    backgroundColor: WHITE,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  tabItemText: {
-    fontSize: FONT_SIZE_12,
-    marginTop: 6,
-  },
-});

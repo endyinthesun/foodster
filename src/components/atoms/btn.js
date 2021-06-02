@@ -1,8 +1,8 @@
 import React from "react";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
-import { Colors, Typo } from "_styles";
-import BagIcon from "_icons/bag-active.svg";
-import ArrowRight from "_icons/arrow-right.svg";
+import { Colors, Typo } from "@styles";
+import BagIcon from "@icons/bag-active.svg";
+import ArrowRight from "@icons/arrow-right.svg";
 
 //Styles value
 const { PRIMARY, WHITE } = Colors;

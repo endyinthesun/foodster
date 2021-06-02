@@ -1,2 +1,4 @@
 import Btn from "./btn";
-export { Btn };
+import Product from "./product";
+import Place from "./place";
+export { Btn, Product, Place };

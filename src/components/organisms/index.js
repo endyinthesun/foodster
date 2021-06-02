@@ -1,3 +1,4 @@
 import TopMain from "./top-main";
-
-export { TopMain };
+import Places from "./places";
+import BottomBar from "./bottom-bar";
+export { TopMain, Places, BottomBar };

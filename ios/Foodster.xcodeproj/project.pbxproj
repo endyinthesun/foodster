@@ -127,7 +127,7 @@
 				13B07FAE1A68108700A75B9A /* Foodster */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FoodsterTests */,
-				83CBBA001A601CBA00E9B192 /* Products */,
+				83CBBA001A601CBA00E9B192 /* Places */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A75E3C519C0E44EF8773EAD0 /* Resources */,
 				B25A3C9EA4BE46958EBB82C6 /* Pods */,
@@ -137,13 +137,13 @@
 			tabWidth = 2;
 			usesTabs = 0;
 		};
-		83CBBA001A601CBA00E9B192 /* Products */ = {
+		83CBBA001A601CBA00E9B192 /* Places */ = {
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Foodster.app */,
 				00E356EE1AD99517003FC87E /* FoodsterTests.xctest */,
 			);
-			name = Products;
+			name = Places;
 			sourceTree = "<group>";
 		};
 		A75E3C519C0E44EF8773EAD0 /* Resources */ = {
@@ -242,7 +242,7 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
-			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Places */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

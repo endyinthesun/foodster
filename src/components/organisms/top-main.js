@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { SearchField } from "_molecules";
-import { Colors, Typo, Spacing } from "_styles";
+import { SearchField } from "@molecules";
+import { Colors, Typo, Spacing } from "@styles";
 import LinearGradient from "react-native-linear-gradient";
 
 //SVGs
-import PinIcon from "_icons/pin.svg";
-import OnTheWayIcon from "_icons/on-the-way.svg";
+import PinIcon from "@icons/pin.svg";
+import OnTheWayIcon from "@icons/on-the-way.svg";
 
 //styles const
 const { WHITE, BLUE, PRIMARY } = Colors;
