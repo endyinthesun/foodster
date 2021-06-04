@@ -9,8 +9,8 @@ import { WHITE, TRANSPARENT } from "@styles/colors";
 import { FONT_FAMILY_MEDIUM, FONT_SIZE_16 } from "@styles/typography";
 import { PADDING_HORIZONTAL } from "@styles/spacing";
 
-//onlyTitle, titleSearch, withLogo, onlyBack, infoSearch
-export default function Header({ type, title, navigation: { goBack } }) {
+//type = [onlyTitle, titleSearch, withLogo, onlyBack, infoSearch]
+export default function Header({ type, title, navigation = null }) {
   const switcher = type === "onlyBack" || type === "infoSearch";
 
   let customProps = {
@@ -24,7 +24,7 @@ export default function Header({ type, title, navigation: { goBack } }) {
     return (
       <View style={[styles.roundedLeft, { backgroundColor: switcher ? WHITE : TRANSPARENT }]}>
         {back ? (
-          <BackBtn onPress={goBack} style={styles.paddingBtn} />
+          <BackBtn onPress={navigation.goBack} style={styles.paddingBtn} />
         ) : logo ? (
           <Logo style={styles.paddingBtn} />
         ) : null}
@@ -70,6 +70,10 @@ export default function Header({ type, title, navigation: { goBack } }) {
       customProps.typeLeft = "back";
       customProps.typeRight = "info";
       break;
+    default:
+      customProps.typeLeft = null;
+      customProps.text = null;
+      customProps.typeRight = "none";
   }
 
   return (

@@ -43,7 +43,7 @@ export default function AppNavigator() {
   const MainStackScreen = () => (
     <MainStack.Navigator>
       <MainStack.Screen name='Categories' component={MainScreen} options={{ headerShown: false }} />
-      <MainStack.Screen name='Dish' component={PlacesScreen} />
+      <MainStack.Screen name='Dish' component={PlacesScreen} options={{ headerShown: false }} />
       <MainStack.Screen
         name='MoreDishes'
         component={MoreDishesScreen}

@@ -6,7 +6,7 @@ export default function MainScreen(props) {
   return (
     <ScrollView style={{ flex: 1 }}>
       <TopMain city={"london"} />
-      <Places {...props} />
+      <Places type={"small"} {...props} />
     </ScrollView>
   );
 }
