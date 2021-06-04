@@ -1,12 +1,13 @@
 import React from "react";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
-import { Colors, Typo } from "@styles";
+
+//styles
+import { PRIMARY, WHITE } from "@styles/colors";
+import { FONT_SIZE_16, FONT_FAMILY_SEMIBOLD } from "@styles/typography";
+
+//SVGs
 import BagIcon from "@icons/bag-active.svg";
 import ArrowRight from "@icons/arrow-right.svg";
-
-//Styles value
-const { PRIMARY, WHITE } = Colors;
-const { FONT_SIZE_16, FONT_FAMILY_SEMIBOLD } = Typo;
 
 //type = "number" || "price"
 //num = Number.isInteger(true)

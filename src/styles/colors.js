@@ -6,3 +6,4 @@ export const WHITE = "#FFFFFF";
 export const BLACK = "#2E282A";
 export const BLUE = "#324376";
 export const GRAY = "#999999";
+export const TRANSPARENT = "transparent";

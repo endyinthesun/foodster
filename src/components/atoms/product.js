@@ -1,10 +1,7 @@
 import React from "react";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
-import { Colors, Typo } from "@styles";
-
-//Styles value
-const { PRIMARY, WHITE } = Colors;
-const { FONT_SIZE_16, FONT_FAMILY_SEMIBOLD } = Typo;
+import { PRIMARY, WHITE } from "@styles/colors";
+import { FONT_SIZE_16, FONT_FAMILY_SEMIBOLD } from "@styles/typography";
 
 export default function Product({}) {
   return <View></View>;

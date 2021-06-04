@@ -1,12 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-//Styles
-import { Colors, Typo } from "@styles";
-
-//Styles value
-const { SECONDARY, BLUE, WHITE } = Colors;
-const { FONT_SIZE_12, FONT_FAMILY_REGULAR, FONT_FAMILY_MEDIUM } = Typo;
+//styles
+import { SECONDARY, BLUE, WHITE } from "@styles/colors";
+import { FONT_SIZE_12, FONT_FAMILY_REGULAR, FONT_FAMILY_MEDIUM } from "@styles/typography";
 
 export default function BottomBar({ state, descriptors, navigation }) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;

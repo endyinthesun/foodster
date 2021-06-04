@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { TextInput, View, Text, StyleSheet } from "react-native";
-import SearchIcon from "@icons/search.svg";
-import { Colors, Typo } from "@styles";
 
-const { WHITE } = Colors;
-const { FONT_SIZE_16 } = Typo;
+//SVGs
+import SearchIcon from "@icons/search.svg";
+
+//styles
+import { WHITE } from "@styles/colors";
+import { FONT_SIZE_16 } from "@styles/typography";
 
 export default function SearchField({ value, updateSearch, style }) {
   const [query, setQuery] = useState(value);

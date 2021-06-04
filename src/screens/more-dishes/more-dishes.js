@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, ScrollView, Pressable, StyleSheet } from "react-native";
-import Back from "@icons/back.svg";
-import Search from "@icons/search.svg";
+import { View, Text, ScrollView, Pressable, StyleSheet, FlatList } from "react-native";
 
-import { Colors } from "@styles";
+//components
+import { Header } from "@organisms";
 
-const { WHITE } = Colors;
+//styles
+import { WHITE } from "@styles/colors";
 
 export default function MoreDishesScreen({ navigation, route }) {
   const { headerTitle } = route.params;
@@ -28,40 +28,14 @@ export default function MoreDishesScreen({ navigation, route }) {
     </View>
   );
   return (
-    <View style={{ flex: 1 }}>
-      <View style={styles.header}>
-        <Pressable onPress={navigation.goBack}>
-          <Back />
-        </Pressable>
-        <Text>{title}</Text>
-        <Search />
-      </View>
-      <ScrollView>
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-        {random}
-      </ScrollView>
-    </View>
+    <>
+      <Header type={"onlyTitle"} title={title} navigation={navigation} />
+      <Header type={"titleSearch"} title={title} navigation={navigation} />
+      <Header type={"withLogo"} title={title} navigation={navigation} />
+      <Header type={"onlyBack"} title={title} navigation={navigation} />
+      <Header type={"infoSearch"} title={title} navigation={navigation} />
+
+      {random}
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 18,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    height: 54,
-    backgroundColor: WHITE,
-  },
-});

@@ -12,9 +12,8 @@ import SaladsIcon from "@icons/products/salads.svg";
 import DessertsIcon from "@icons/products/desserts.svg";
 import MoreIcon from "@icons/products/more.svg";
 //styles
-import { Spacing } from "@styles";
+import { PADDING_HORIZONTAL } from "@styles/spacing";
 
-const { PADDING_HORIZONTAL } = Spacing;
 export default function Places({ navigation: { navigate } }) {
   return (
     <View style={styles.container}>

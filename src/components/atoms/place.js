@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, Button, Pressable, StyleSheet } from "react-native";
-import { Colors, Typo } from "@styles";
 
-const { WHITE, SECONDARY, PRIMARY } = Colors;
-const { FONT_SIZE_16 } = Typo;
+//styles
+import { WHITE, SECONDARY, PRIMARY } from "@styles/colors";
+import { FONT_SIZE_16 } from "@styles/typography";
 
 export default function Place({ title, onPress, icon }) {
   return (

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { SearchField } from "@molecules";
-import { Colors, Typo, Spacing } from "@styles";
 import LinearGradient from "react-native-linear-gradient";
 
+//styles
+import { WHITE, BLUE, PRIMARY } from "@styles/colors";
+import { FONT_SIZE_20, FONT_SIZE_16, FONT_FAMILY_BOLD } from "@styles/typography";
+import { PADDING_HORIZONTAL } from "@styles/spacing";
+
 //SVGs
-import PinIcon from "@icons/pin.svg";
 import OnTheWayIcon from "@icons/on-the-way.svg";
 
-//styles const
-const { WHITE, BLUE, PRIMARY } = Colors;
-const { FONT_SIZE_20, FONT_SIZE_16, FONT_FAMILY_BOLD } = Typo;
-const { PADDING_HORIZONTAL } = Spacing;
+//components
+import { Logo, Location } from "@atoms";
+import { SearchField } from "@molecules";
 
 export default function TopMain({ city }) {
   const [searchValue, setSearchValue] = useState("");
@@ -24,11 +25,10 @@ export default function TopMain({ city }) {
         end={{ x: 0.5, y: 1 }}
         style={styles.header}
       >
-        <Text style={styles.title}>Foodster</Text>
+        <Logo />
         <OnTheWayIcon fill={PRIMARY} />
-        <View style={styles.cityBlock}>
-          <PinIcon />
-          <Text style={styles.cityText}>{city}</Text>
+        <View>
+          <Location city={city} />
         </View>
       </LinearGradient>
       <View style={styles.searchFieldContainer}>
@@ -48,19 +48,6 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-  },
-  title: {
-    fontFamily: FONT_FAMILY_BOLD,
-    fontSize: FONT_SIZE_20,
-    color: BLUE,
-  },
-  cityBlock: {
-    flexDirection: "row",
-  },
-  cityText: {
-    fontSize: FONT_SIZE_16,
-    marginLeft: 6,
-    textTransform: "capitalize",
   },
   searchFieldContainer: {
     paddingHorizontal: PADDING_HORIZONTAL,

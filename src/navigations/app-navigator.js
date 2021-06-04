@@ -5,6 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+//styles
+import { WHITE } from "@styles/colors";
+
 //SVGs
 import MainIcon from "@icons/main.svg";
 import MainActiveIcon from "@icons/main-active.svg";
@@ -30,11 +33,11 @@ import {
   MoreDishesScreen,
 } from "@screens";
 
-//Custom bottom bar
+//components
 import { BottomBar } from "@organisms";
 
 export default function AppNavigator() {
-  const Tab = createBottomTabNavigator();
+  const Root = createBottomTabNavigator();
   const MainStack = createStackNavigator();
 
   const MainStackScreen = () => (
@@ -48,64 +51,44 @@ export default function AppNavigator() {
         options={{
           title: "Dishes",
           headerShown: false,
-          // headerStyle: styles.header,
-          // header: ({ scene, previous, navigation }) => {
-          //   const { options } = scene.descriptor;
-          //   const title =
-          //     options.headerTitle !== undefined
-          //       ? options.headerTitle
-          //       : options.title !== undefined
-          //       ? options.title
-          //       : scene.route.name;
-          //   const backBtn = previous ? (
-          //     <Pressable onPress={navigation.goBack}>
-          //       <Back />
-          //     </Pressable>
-          //   ) : undefined;
-          //   return (
-          //     <View style={options.headerStyle}>
-          //       {backBtn}
-          //       <Text>{title}</Text>
-          //       <Search />
-          //     </View>
-          //   );
-          // },
         }}
       />
     </MainStack.Navigator>
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <Tab.Navigator tabBarVisible={false} tabBar={(props) => <BottomBar {...props} />}>
-          <Tab.Screen
-            name='Main'
-            component={MainStackScreen}
-            options={{ icon: <MainIcon />, iconActive: <MainActiveIcon /> }}
-          />
-          <Tab.Screen
-            name='Restaurants'
-            component={RestaurantsScreen}
-            options={{ icon: <PlacesIcon />, iconActive: <PlacesActiveIcon /> }}
-          />
-          <Tab.Screen
-            name='My order'
-            component={MyOrderScreen}
-            options={{ icon: <BagIcon />, iconActive: <BagActiveIcon /> }}
-          />
-          <Tab.Screen
-            name='Promotions'
-            component={PromotionsScreen}
-            options={{ icon: <PromoIcon />, iconActive: <PromoActiveIcon /> }}
-          />
-          <Tab.Screen
-            name='Profile'
-            component={ProfileScreen}
-            options={{ icon: <UserIcon />, iconActive: <UserActiveIcon /> }}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+    <View style={{ flex: 1, backgroundColor: WHITE }}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <Root.Navigator tabBarVisible={false} tabBar={(props) => <BottomBar {...props} />}>
+            <Root.Screen
+              name='Main'
+              component={MainStackScreen}
+              options={{ icon: <MainIcon />, iconActive: <MainActiveIcon /> }}
+            />
+            <Root.Screen
+              name='Restaurants'
+              component={RestaurantsScreen}
+              options={{ icon: <PlacesIcon />, iconActive: <PlacesActiveIcon /> }}
+            />
+            <Root.Screen
+              name='My order'
+              component={MyOrderScreen}
+              options={{ icon: <BagIcon />, iconActive: <BagActiveIcon /> }}
+            />
+            <Root.Screen
+              name='Promotions'
+              component={PromotionsScreen}
+              options={{ icon: <PromoIcon />, iconActive: <PromoActiveIcon /> }}
+            />
+            <Root.Screen
+              name='Profile'
+              component={ProfileScreen}
+              options={{ icon: <UserIcon />, iconActive: <UserActiveIcon /> }}
+            />
+          </Root.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </View>
   );
 }

@@ -4,7 +4,7 @@ import { Button, SafeAreaView, Text, TouchableHighlight, View } from "react-nati
 export default function PlacesScreen({ route }) {
   return (
     <View>
-      <Text>Time to {route.params.type.toLowerCase()}</Text>
+      <Text>Time to {route.params.headerTitle}</Text>
     </View>
   );
 }
