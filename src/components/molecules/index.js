@@ -1,3 +1,3 @@
 import SearchField from "./search-field";
-import Place from "./place";
-export { SearchField, Place };
+import Dish from "./dish";
+export { SearchField, Dish };
