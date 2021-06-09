@@ -1,3 +1,3 @@
 import SearchField from "./search-field";
-import Dish from "./dish";
-export { SearchField, Dish };
+import DishCategory from "./dish-category";
+export { SearchField, DishCategory };

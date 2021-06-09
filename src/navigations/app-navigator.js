@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -43,7 +43,7 @@ export default function AppNavigator() {
   const MainStackScreen = () => (
     <MainStack.Navigator>
       <MainStack.Screen name='Categories' component={MainScreen} options={{ headerShown: false }} />
-      <MainStack.Screen name='Dish' component={PlacesScreen} options={{ headerShown: false }} />
+      {/*<MainStack.Screen name='DishCategory' component={PlacesScreen} options={{ headerShown: false }} />*/}
       <MainStack.Screen
         name='MoreDishes'
         component={MoreDishesScreen}

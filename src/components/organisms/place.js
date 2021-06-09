@@ -30,7 +30,9 @@ export default function Place({ placeName, cuisineType, deliveryTime, rate, imgR
           </View>
           <View style={styles.rate}>
             <Star />
-            <Text style={styles.detailsText}>{rate}</Text>
+            <Text style={styles.detailsText}>
+              {Number.isInteger(rate) ? rate : rate.toFixed(1)}
+            </Text>
           </View>
         </View>
       </View>

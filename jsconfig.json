@@ -14,7 +14,9 @@
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
       "@icons/*": ["./src/assets/icons/*"],
-      "@images/*": ["./src/assets/images/*"]
+      "@images/*": ["./src/assets/images/*"],
+      "@store": ["./src/store/*"]
+
     }
   },
   "exclude": ["node_modules", "dist"]

@@ -5,7 +5,7 @@ import { View, Text, Button, Pressable, StyleSheet, Image, ImageBackground } fro
 import { WHITE, SECONDARY, PRIMARY, BLACK } from "@styles/colors";
 import { FONT_SIZE_16, FONT_SIZE_13, FONT_FAMILY_MEDIUM } from "@styles/typography";
 
-export default function Dish({ type, title, subtitle, onPress, icon, require, style }) {
+export default function DishCategory({ type, title, subtitle, onPress, icon, require, style }) {
   const small = type === "small";
   const big = type === "big";
 

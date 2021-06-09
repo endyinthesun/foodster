@@ -35,6 +35,7 @@ module.exports = {
           "@services": "./services",
           "@styles": "./src/styles",
           "@utils": "./src/utils",
+          "@store": "./src/store",
         },
       },
     },
