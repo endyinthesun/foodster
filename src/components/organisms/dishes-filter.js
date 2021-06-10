@@ -9,8 +9,8 @@ import { DISHES_DATA } from "@assets/data";
 import { DishFilter } from "@atoms/index";
 
 export default function DishesFilter() {
-  const id = require("shortid");
-  const dishData = [{ title: "All", id: id.generate() }, ...DISHES_DATA];
+  // const id = require("shortid");
+  const dishData = [{ title: "All", id: 1 }, ...DISHES_DATA];
   return (
     <FlatList
       contentContainerStyle={styles.dishesList}

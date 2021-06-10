@@ -4,17 +4,21 @@
   "private": true,
   "scripts": {
     "rn": "react-native",
+    "server": "json-server db.json --watch --port 8000",
+    "loctun":  "lt --port 8000 --subdomain serv",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "concurrently \"yarn run loctun\" \"yarn run server\" \"react-native start\"",
+
     "test": "jest",
-    "lint": "eslint .",
-    "server": "json-server db.json --watch --port 8000"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^5.11.11",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
+    "axios": "^0.21.1",
+    "concurrently": "^6.2.0",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
     "react": "17.0.1",

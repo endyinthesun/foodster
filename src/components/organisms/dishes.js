@@ -1,23 +1,14 @@
 import React, { useRef } from "react";
 import { View, StyleSheet } from "react-native";
 import { DishCategory } from "@molecules/index";
-import { DISHES_DATA } from "@assets/data";
 
-//SVGs
-import PizzaIcon from "@icons/dishes/pizza.svg";
-import SushiIcon from "@icons/dishes/sushi.svg";
-import SnacksIcon from "@icons/dishes/snacks.svg";
-import LunchIcon from "@icons/dishes/lunch.svg";
-import FastfoodIcon from "@icons/dishes/fastfood.svg";
-import SaladsIcon from "@icons/dishes/salads.svg";
-import DessertsIcon from "@icons/dishes/desserts.svg";
-import SoupsIcon from "@icons/dishes/soups.svg";
 import MoreIcon from "@icons/dishes/more.svg";
 //styles
 import { PADDING_HORIZONTAL } from "@styles/spacing";
 
 //stores
 import nav from "@store/navigation";
+import { DISHES_DATA } from "@assets/data";
 
 export default function Dishes({ type, navigation: { navigate } }) {
   let content = null;
