@@ -2,102 +2,103 @@
   "restaurants":  [
     {
       "placeName": "Family place",
-      "cuisineType": "Ukrainian cuisine",
+      "cuisineType": "Ukrainian",
       "deliveryTime": [10, 15],
       "rate": 5,
       "imgUri": "https://via.placeholder.com/150/8f209a",
       "dishes": ["Pizza", "Snacks", "Lunch", "Soups"],
+      "optional":  ["Popular", "High ratings"],
       "id": 1
     },
     {
-      "placeName": "Ramen Delicious",
-      "cuisineType": "Japanese cuisine",
-      "deliveryTime": [30, 45],
-      "rate": 4.344,
-      "imgUri": "https://via.placeholder.com/150/92c952",
-      "dishes": ["Pizza", "Sushi", "Fastfood", "Desserts"],
-      "id": 2
-    },
-    {
-      "placeName": "Bellissimo",
-      "cuisineType": "Italian cuisine",
-      "deliveryTime": [25, 30],
-      "rate": 4.8,
-      "imgUri": "https://via.placeholder.com/150/771796",
-      "dishes": ["Pizza", "Lunch", "Fastfood", "Desserts", "Soups"],
-      "id": 3
-    },
-    {
-      "placeName": "Andante lake",
-      "cuisineType": "European cuisine",
-      "deliveryTime": [30, 40],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/24f355",
-      "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Desserts", "Soups"],
-      "id": 4
-    },
-    {
-      "placeName": "Mama mio pizza",
-      "cuisineType": "Italian cuisine",
-      "deliveryTime": [30, 40],
-      "rate": 4.4,
-      "imgUri": "https://via.placeholder.com/150/d32776",
-      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
-      "id": 5
-    },
-    {
-      "placeName": "Family Yard",
-      "cuisineType": "European cuisine",
-      "deliveryTime": [35, 45],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/f66b97",
-      "dishes": ["Pizza", "Snacks", "Fastfood", "Desserts", "Soups"],
-      "id": 6
-    },
-    {
-      "placeName": "Lorem",
-      "cuisineType": "Ukrainian cuisine",
-      "deliveryTime": [10, 15],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/56a8c2",
-      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
-      "id": 7
-    },
-    {
-      "placeName": "Ipsum",
-      "cuisineType": "Ukrainian cuisine",
-      "deliveryTime": [10, 15],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/b0f7cc",
-      "dishes": ["Pizza", "Sushi", "Snacks", "Salads", "Soups"],
-      "id": 8
-    },
-    {
-      "placeName": "Taco Bell",
-      "cuisineType": "Ukrainian cuisine",
-      "deliveryTime": [10, 15],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/54176f",
-      "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Salads", "Soups"],
-      "id": 9
-    },
-    {
-      "placeName": "Subways",
-      "cuisineType": "Ukrainian cuisine",
-      "deliveryTime": [10, 15],
-      "rate": 5,
-      "imgUri": "https://via.placeholder.com/150/51aa97",
-      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
-      "id": 10
-    },
-    {
       "placeName": "Kek",
-      "cuisineType": "Ukrainian cuisine",
+      "cuisineType": "Ukrainian",
       "deliveryTime": [10, 15],
       "rate": 5,
       "imgUri": "https://via.placeholder.com/150/810b14",
       "dishes": ["Pizza", "Snacks", "Lunch"],
-      "id": 11
+      "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
+      "id": 2
+    },
+    {
+      "placeName": "Bellissimo",
+      "cuisineType": "Italian",
+      "deliveryTime": [25, 30],
+      "rate": 4.8,
+      "imgUri": "https://via.placeholder.com/150/771796",
+      "dishes": ["Pizza", "Lunch", "Fastfood", "Desserts", "Soups"],
+      "optional":  [ "Free delivery", "Fast delivery", "High rating"],
+      "id": 3
+    },
+    {
+      "placeName": "Andante lake",
+      "cuisineType": "European",
+      "deliveryTime": [30, 40],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/24f355",
+      "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Desserts", "Soups"],
+      "optional":  ["Free delivery"],
+      "id": 4
+    },
+    {
+      "placeName": "Mama mio pizza",
+      "cuisineType": "Italian",
+      "deliveryTime": [30, 40],
+      "rate": 4.4,
+      "imgUri": "https://via.placeholder.com/150/d32776",
+      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
+      "optional":  ["Popular", "Free delivery"],
+      "id": 5
+    },
+    {
+      "placeName": "Family Yard",
+      "cuisineType": "European",
+      "deliveryTime": [35, 45],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/f66b97",
+      "dishes": ["Pizza", "Snacks", "Fastfood", "Desserts", "Soups"],
+      "optional":  ["High ratings"],
+      "id": 6
+    },
+    {
+      "placeName": "Lorem",
+      "cuisineType": "Ukrainian",
+      "deliveryTime": [10, 15],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/56a8c2",
+      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
+      "optional":  ["Popular", "Free delivery"],
+      "id": 7
+    },
+    {
+      "placeName": "Sushi",
+      "cuisineType": "Asian",
+      "deliveryTime": [10, 15],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/b0f7cc",
+      "dishes": ["Pizza", "Sushi", "Snacks", "Salads", "Soups"],
+      "optional":  [ "Free delivery", "High rating"],
+      "id": 8
+    },
+    {
+      "placeName": "Taco Bell",
+      "cuisineType": "Georgian",
+      "deliveryTime": [10, 15],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/54176f",
+      "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Salads", "Soups"],
+      "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
+      "id": 9
+    },
+    {
+      "placeName": "Subways",
+      "cuisineType": "Ukrainian",
+      "deliveryTime": [10, 15],
+      "rate": 5,
+      "imgUri": "https://via.placeholder.com/150/51aa97",
+      "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
+      "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
+      "id": 10
     }
   ],
   "comments": [

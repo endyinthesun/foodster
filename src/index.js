@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+// import { registerRootComponent } from "expo";
 
 //navigation
-import RootNavigator from "@navigations";
+import RootNavigator from "@navigations/index";
 
 //styles
-import { Typo, Spacing, Colors, Mixins } from "@styles";
-
-//styles value
-const { FONT_FAMILY_REGULAR } = Typo;
-const { BG } = Colors;
+import { BG } from "@styles/colors";
+import { FONT_FAMILY_REGULAR } from "@styles/typography";
 
 export default function App() {
   return (
@@ -29,3 +27,5 @@ const styles = StyleSheet.create({
     backgroundColor: BG,
   },
 });
+
+// registerRootComponent(App);

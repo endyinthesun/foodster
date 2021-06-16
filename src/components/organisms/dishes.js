@@ -7,9 +7,11 @@ import MoreIcon from "@icons/dishes/more.svg";
 import { PADDING_HORIZONTAL } from "@styles/spacing";
 
 //stores
-import nav from "@store/navigation";
+import { filters } from "@store/index";
+
 import { DISHES_DATA } from "@assets/data";
 
+// const filters = new Filters();
 export default function Dishes({ type, navigation: { navigate } }) {
   let content = null;
   if (type === "small") {
@@ -28,7 +30,7 @@ export default function Dishes({ type, navigation: { navigate } }) {
         <DishCategory
           title={title}
           onPress={() => {
-            nav.changeFilter(title);
+            filters.changeDishFilter(title);
             navigate("Restaurants", { headerTitle: title });
           }}
           icon={icon}
@@ -51,7 +53,7 @@ export default function Dishes({ type, navigation: { navigate } }) {
           title={title}
           subtitle={subtitle}
           onPress={() => {
-            nav.changeFilter(title);
+            filters.changeDishFilter(title);
             navigate("Restaurants", { headerTitle: title });
           }}
           icon={icon}

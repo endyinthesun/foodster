@@ -12,9 +12,9 @@ import ArrowRight from "@icons/arrow-right.svg";
 //type = "number" || "price"
 //num = Number.isInteger(true)
 
-export default function Btn({ title, handle, type = "", num = null }) {
-  const validNumber = type === "number" && Number.isInteger(num);
-  const validPrice = type === "price" && Number.isInteger(num);
+export default function Btn({ title, handle, type = "", num = null, outStyles }) {
+  const validNumber = type === "number" && Number.isInteger(+num);
+  const validPrice = type === "price" && Number.isInteger(+num);
 
   const numberContent = <Text style={styles.btnText}>({num})</Text>;
   const priceContent = (
@@ -27,11 +27,11 @@ export default function Btn({ title, handle, type = "", num = null }) {
 
   return (
     <Pressable
-      onPress={handle}
-      style={{ ...styles.btn, justifyContent: validPrice ? "space-between" : "center" }}
+      onPress={() => handle()}
+      style={[styles.btn, { justifyContent: validPrice ? "space-between" : "center" }, outStyles]}
     >
       <Text style={styles.btnText}>{title} </Text>
-      {validNumber ? numberContent : validPrice ? priceContent : null}
+      <Text>{validNumber ? numberContent : validPrice ? priceContent : null}</Text>
     </Pressable>
   );
 }

@@ -32,7 +32,7 @@ export default function Place({ placeName, cuisineType, deliveryTime, rate, imgR
             {placeName}
           </Text>
           <Text style={styles.cuisineType} numberOfLines={1}>
-            {cuisineType}
+            {`${cuisineType} cuisine`}
           </Text>
         </View>
         <View style={styles.details}>

@@ -7,6 +7,7 @@ import DessertsIcon from "@icons/dishes/desserts.svg";
 import SaladsIcon from "@icons/dishes/salads.svg";
 import SoupsIcon from "@icons/dishes/soups.svg";
 import React from "react";
+import CuisineFilters from "@organisms/cuisine-filters";
 
 const id = require("shortid");
 
@@ -66,6 +67,56 @@ export const DISHES_DATA = [
     id: 9,
     icon: <SoupsIcon />,
     require: require("@images/dishes/soups_.png"),
+  },
+];
+
+export const OPTIONAL_FILTERS_DATA = [
+  {
+    title: "Popular",
+    id: 1,
+  },
+  {
+    title: "Free delivery",
+    id: 2,
+  },
+  {
+    title: "Fast delivery",
+    id: 3,
+  },
+  {
+    title: "High rating",
+    id: 4,
+  },
+];
+
+export const CUISINE_FILTERS_DATA = [
+  {
+    title: "Ukrainian",
+    id: 1,
+  },
+  {
+    title: "Georgian",
+    id: 2,
+  },
+  {
+    title: "Italian",
+    id: 3,
+  },
+  {
+    title: "Asian",
+    id: 4,
+  },
+  {
+    title: "Japanese",
+    id: 5,
+  },
+  {
+    title: "British",
+    id: 6,
+  },
+  {
+    title: "European",
+    id: 7,
   },
 ];
 

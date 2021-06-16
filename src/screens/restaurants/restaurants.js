@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import {
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+  Pressable,
+} from "react-native";
 import { observer } from "mobx-react-lite";
 import axios from "axios";
 
 //components
-import { Header, Place, DishesFilter } from "@organisms/index";
+import { Header, Place, ModalFilterMenu, Categories } from "@organisms/index";
 
 //SVGs
 import Filter from "@icons/filter.svg";
@@ -20,36 +28,36 @@ import {
 import { BLUE, SECONDARY, WHITE, PRIMARY } from "@styles/colors";
 
 //store
-import nav from "@store/navigation";
+import { filters, others } from "@store/index";
 
 //utils
 import API from "@utils/api";
+import { DISHES_DATA } from "@assets/data";
 
 export default observer(function RestaurantsScreen({ navigation, route }) {
   const [restaurantData, setRestaurantData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
 
-  // const filteredRestaurantData =
-  //   nav.filter === "All"
-  //     ? RESTAURANTS_DATA
-  //     : RESTAURANTS_DATA.filter(({ dishes }) => dishes.includes(nav.filter));
-
-  useEffect(async () => {
+  useEffect(() => {
     let allReq = [];
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i <= 10; i++) {
       allReq.push(API.get(`/restaurants/${i}`));
     }
     axios
       .all(allReq)
       .then((res) => {
         const data = res.map(
-          ({ data: { placeName, cuisineType, deliveryTime, rate, imgUri, dishes, id } }) => ({
+          ({
+            data: { placeName, cuisineType, deliveryTime, rate, imgUri, dishes, optional, id },
+          }) => ({
             placeName,
             cuisineType,
             deliveryTime,
             rate,
             imgUri,
             dishes,
+            optional,
             id,
           })
         );
@@ -59,30 +67,52 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
       })
       .catch((err) => console.log(err));
   }, []);
-  const filteredData =
-    nav.filter === "All"
+  const categoryData =
+    filters.dishFilter === "All"
       ? restaurantData
-      : restaurantData.filter(({ dishes }) => dishes.includes(nav.filter));
+      : restaurantData.filter(({ dishes }) => dishes.includes(filters.dishFilter));
+  const filtersData = (data) => {
+    if (!filters.optionalFilters.slice().length && !filters.cuisineFilters.slice().length)
+      return data;
+
+    const optional = data.filter(({ optional }) => {
+      const valid = filters.optionalFilters.slice().map((filter) => optional.includes(filter));
+      return !valid.includes(false);
+    });
+    const cuisine = optional.filter(({ cuisineType }) => {
+      const valid = filters.cuisineFilters.slice().map((fil) => cuisineType === fil);
+      return valid.includes(true);
+    });
+    if (filters.optionalFilters.slice().length && !filters.cuisineFilters.slice().length) {
+      return optional;
+    }
+    if (!filters.optionalFilters.slice().length && filters.cuisineFilters.slice().length) {
+      return cuisine;
+    }
+    return cuisine;
+  };
+  // console.log("-------- - --------");
+  // console.log("filtersData--- ", filtersData(categoryData));
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header type={"withLogo"} />
       <View style={styles.container}>
         <View>
-          <DishesFilter />
+          <Categories content={dishFilters} />
         </View>
         <View style={styles.head}>
           <Text style={styles.headText}>Restaurants</Text>
-          <View style={styles.filter}>
+          <Pressable style={styles.filter} onPress={() => others.toggleModalVisible(true)}>
             <Filter />
             <Text style={styles.filterText}>Filter</Text>
-          </View>
+          </Pressable>
         </View>
         {isLoading ? (
           <ActivityIndicator size='large' color={PRIMARY} />
         ) : (
           <FlatList
             contentContainerStyle={styles.restaurantsList}
-            data={filteredData}
+            data={filtersData(categoryData)}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <Place
@@ -96,6 +126,7 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
           />
         )}
       </View>
+      <ModalFilterMenu />
     </SafeAreaView>
   );
 });
