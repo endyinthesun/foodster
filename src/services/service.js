@@ -1,10 +1,13 @@
 import API from "./api";
 
 export default class FoodsterService {
-  getAllRestaurants() {
-    const response = API.get("/restaurants/");
-
-    return response;
+  async getAllRestaurants() {
+    try {
+      const response = await API.get("/restaurants/");
+      return response.data;
+    } catch (error) {
+      throw new Error(`Unable to get countries that use `);
+    }
   }
   async getRestaurant(id) {
     const product = null;

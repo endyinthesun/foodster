@@ -24,30 +24,33 @@ import { BLUE, BLACK, PRIMARY } from "@styles/colors";
 import { filtersStore, othersStore, restaurantsStore } from "@store/index";
 
 //utils
-import API from "@services/api";
 import FoodsterService from "@services/service";
 import { DISHES_DATA } from "@assets/data";
 
 const restaurant = new FoodsterService();
 export default observer(function RestaurantsScreen({ navigation, route }) {
-  // const [restaurantData, setRestaurantData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
 
   useEffect(() => {
-    API.get("/restaurants/")
-      .then(({ data }) => {
+    restaurant
+      .getAllRestaurants()
+      .then((data) => {
         restaurantsStore.writeRestaurants(data);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
+
   const categoryData =
     filtersStore.dishFilter === "All"
-      ? restaurantsStore.restaurantsData.slice()
-      : restaurantsStore.restaurantsData
+      ? restaurantsStore.data.slice()
+      : restaurantsStore.data
           .slice()
           .filter(({ dishes }) => dishes.includes(filtersStore.dishFilter));
+
   const filtersData = (data) => {
     const optionalLength = filtersStore.optionalFilters.slice();
     const cuisineLength = filtersStore.cuisineFilters.slice();
@@ -101,7 +104,8 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
                 cuisineType={item.cuisineType}
                 deliveryTime={item.deliveryTime}
                 rate={item.rate}
-                imgReq={{ uri: item.imgUri }}
+                imgUri={item.imgUri}
+                outStyles={{ width: "100%" }}
               />
             )}
             ListEmptyComponent={noResultText}
@@ -112,6 +116,7 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
     </SafeAreaView>
   );
 });
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

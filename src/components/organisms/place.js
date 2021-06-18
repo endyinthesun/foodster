@@ -12,20 +12,20 @@ import {
   FONT_SIZE_16,
 } from "@styles/typography";
 
-export default function Place({ placeName, cuisineType, deliveryTime, rate, imgReq }) {
+export default function Place({ placeName, cuisineType, deliveryTime, rate, imgUri, outStyles }) {
   const deliver = deliveryTime[1]
     ? `${deliveryTime[0]}-${deliveryTime[1]} min`
     : `${deliveryTime[0]} min`;
 
   const validRate = (value) =>
-    Number.isNaN(value) || value === "undefined"
-      ? "None"
+    Number.isNaN(value)
+      ? console.log("rate value -- NaN")
       : Number.isInteger(value)
       ? value
       : value.toFixed(1);
-
+  const correctRate = validRate(+rate);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, outStyles]}>
       <View style={styles.left}>
         <View>
           <Text style={styles.placeName} numberOfLines={1}>
@@ -40,14 +40,16 @@ export default function Place({ placeName, cuisineType, deliveryTime, rate, imgR
             <Clock style={styles.icon} />
             <Text style={styles.detailsText}>{deliver}</Text>
           </View>
-          <View style={styles.rate}>
-            <Star style={styles.icon} />
-            <Text style={styles.detailsText}>{validRate(+rate)}</Text>
-          </View>
+          {rate === undefined ? null : (
+            <View style={styles.rate}>
+              <Star style={styles.icon} />
+              <Text style={styles.detailsText}>{correctRate}</Text>
+            </View>
+          )}
         </View>
       </View>
       <View style={styles.right}>
-        <Image source={imgReq} style={styles.rightImg} />
+        <Image source={{ uri: imgUri }} style={styles.rightImg} />
       </View>
     </View>
   );
@@ -57,7 +59,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
+    // width: "100%",
+    // width: 296,
     height: 100,
     backgroundColor: WHITE,
     borderRadius: 20,
