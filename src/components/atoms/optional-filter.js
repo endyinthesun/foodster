@@ -6,7 +6,12 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { BG, PRIMARY, SECONDARY, WHITE } from "@styles/colors";
 import { FONT_FAMILY_REGULAR, FONT_FAMILY_SEMIBOLD, FONT_SIZE_13 } from "@styles/typography";
 
-const OptionalFilter = observer(({ title, activeOptional, addArrElements, remArrElements }) => {
+export default observer(function OptionalFilter({
+  title,
+  activeOptional,
+  addArrElements,
+  remArrElements,
+}) {
   const [toggleFilter, setToggleFilter] = useState(activeOptional);
   const capitalizeTitle = title[0].toUpperCase() + title.slice(1).toLowerCase();
 
@@ -38,8 +43,6 @@ const OptionalFilter = observer(({ title, activeOptional, addArrElements, remArr
     </View>
   );
 });
-
-export default OptionalFilter;
 
 const styles = StyleSheet.create({
   dishContainer: {

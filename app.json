@@ -1,4 +1,25 @@
 {
-  "name": "Foodster",
-  "displayName": "Foodster"
+  "expo": {
+    "name": "Foodster",
+    "slug": "foodster",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.devseonet.foodster",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#DCE0ED"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.devseonet.foodster"
+    }
+  }
 }

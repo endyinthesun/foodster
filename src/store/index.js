@@ -1,4 +1,5 @@
-import filters from "./filters";
-import others from "./others";
+import filtersStore from "./filters-store";
+import othersStore from "./others-store";
+import restaurantsStore from "./restaurants-store";
 
-export { filters, others };
+export { filtersStore, othersStore, restaurantsStore };

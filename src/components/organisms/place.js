@@ -47,9 +47,7 @@ export default function Place({ placeName, cuisineType, deliveryTime, rate, imgR
         </View>
       </View>
       <View style={styles.right}>
-        {/*<Suspense fallback={<ActivityIndicator size='large' color={PRIMARY} />}>*/}
         <Image source={imgReq} style={styles.rightImg} />
-        {/*</Suspense>*/}
       </View>
     </View>
   );
@@ -75,6 +73,7 @@ const styles = StyleSheet.create({
   placeName: {
     fontSize: FONT_SIZE_16,
     fontFamily: FONT_FAMILY_MEDIUM,
+    color: BLACK,
   },
   cuisineType: {
     fontSize: FONT_SIZE_13,

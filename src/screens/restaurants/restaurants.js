@@ -9,7 +9,6 @@ import {
   Pressable,
 } from "react-native";
 import { observer } from "mobx-react-lite";
-import axios from "axios";
 
 //components
 import { Header, Place, ModalFilterMenu, Categories } from "@organisms/index";
@@ -18,81 +17,61 @@ import { Header, Place, ModalFilterMenu, Categories } from "@organisms/index";
 import Filter from "@icons/filter.svg";
 
 //styles
-import {
-  FONT_FAMILY_REGULAR,
-  FONT_FAMILY_SEMIBOLD,
-  FONT_SIZE_13,
-  FONT_SIZE_16,
-  FONT_SIZE_20,
-} from "@styles/typography";
-import { BLUE, SECONDARY, WHITE, PRIMARY } from "@styles/colors";
+import { FONT_FAMILY_SEMIBOLD, FONT_SIZE_16, FONT_SIZE_20 } from "@styles/typography";
+import { BLUE, BLACK, PRIMARY } from "@styles/colors";
 
 //store
-import { filters, others } from "@store/index";
+import { filtersStore, othersStore, restaurantsStore } from "@store/index";
 
 //utils
-import API from "@utils/api";
+import API from "@services/api";
+import FoodsterService from "@services/service";
 import { DISHES_DATA } from "@assets/data";
 
+const restaurant = new FoodsterService();
 export default observer(function RestaurantsScreen({ navigation, route }) {
-  const [restaurantData, setRestaurantData] = useState([]);
+  // const [restaurantData, setRestaurantData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
 
   useEffect(() => {
-    let allReq = [];
-    for (let i = 1; i <= 10; i++) {
-      allReq.push(API.get(`/restaurants/${i}`));
-    }
-    axios
-      .all(allReq)
-      .then((res) => {
-        const data = res.map(
-          ({
-            data: { placeName, cuisineType, deliveryTime, rate, imgUri, dishes, optional, id },
-          }) => ({
-            placeName,
-            cuisineType,
-            deliveryTime,
-            rate,
-            imgUri,
-            dishes,
-            optional,
-            id,
-          })
-        );
-
-        setRestaurantData(data);
-        setIsLoading(!isLoading);
+    API.get("/restaurants/")
+      .then(({ data }) => {
+        restaurantsStore.writeRestaurants(data);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
   const categoryData =
-    filters.dishFilter === "All"
-      ? restaurantData
-      : restaurantData.filter(({ dishes }) => dishes.includes(filters.dishFilter));
+    filtersStore.dishFilter === "All"
+      ? restaurantsStore.restaurantsData.slice()
+      : restaurantsStore.restaurantsData
+          .slice()
+          .filter(({ dishes }) => dishes.includes(filtersStore.dishFilter));
   const filtersData = (data) => {
-    if (!filters.optionalFilters.slice().length && !filters.cuisineFilters.slice().length)
-      return data;
+    const optionalLength = filtersStore.optionalFilters.slice();
+    const cuisineLength = filtersStore.cuisineFilters.slice();
+
+    if (!optionalLength.length && !cuisineLength.length) return data;
 
     const optional = data.filter(({ optional }) => {
-      const valid = filters.optionalFilters.slice().map((filter) => optional.includes(filter));
+      const valid = optionalLength.map((filter) => optional.includes(filter));
       return !valid.includes(false);
     });
     const cuisine = optional.filter(({ cuisineType }) => {
-      const valid = filters.cuisineFilters.slice().map((fil) => cuisineType === fil);
+      const valid = cuisineLength.map((fil) => cuisineType === fil);
       return valid.includes(true);
     });
-    if (filters.optionalFilters.slice().length && !filters.cuisineFilters.slice().length) {
+    if (optionalLength.length && !cuisineLength.length) {
       return optional;
     }
-    if (!filters.optionalFilters.slice().length && filters.cuisineFilters.slice().length) {
+    if (!optionalLength.length && cuisineLength.length) {
       return cuisine;
     }
     return cuisine;
   };
-  // console.log("-------- - --------");
-  // console.log("filtersData--- ", filtersData(categoryData));
+  const noResultText = <Text style={styles.noResultText}> No results found 😟 </Text>;
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header type={"withLogo"} />
@@ -102,18 +81,20 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
         </View>
         <View style={styles.head}>
           <Text style={styles.headText}>Restaurants</Text>
-          <Pressable style={styles.filter} onPress={() => others.toggleModalVisible(true)}>
+          <Pressable style={styles.filter} onPress={() => othersStore.toggleModalVisible(true)}>
             <Filter />
             <Text style={styles.filterText}>Filter</Text>
           </Pressable>
         </View>
         {isLoading ? (
-          <ActivityIndicator size='large' color={PRIMARY} />
+          <View style={styles.spinnerContainer}>
+            <ActivityIndicator size='large' color={PRIMARY} />
+          </View>
         ) : (
           <FlatList
             contentContainerStyle={styles.restaurantsList}
             data={filtersData(categoryData)}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <Place
                 placeName={item.placeName}
@@ -123,6 +104,7 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
                 imgReq={{ uri: item.imgUri }}
               />
             )}
+            ListEmptyComponent={noResultText}
           />
         )}
       </View>
@@ -135,6 +117,16 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 3,
   },
+  spinnerContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+  },
+  noResultText: {
+    marginTop: 10,
+    textAlign: "center",
+    fontSize: FONT_SIZE_16,
+  },
   head: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -145,6 +137,7 @@ const styles = StyleSheet.create({
   headText: {
     fontSize: FONT_SIZE_20,
     fontFamily: FONT_FAMILY_SEMIBOLD,
+    color: BLACK,
   },
   filter: {
     flexDirection: "row",

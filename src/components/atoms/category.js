@@ -7,16 +7,16 @@ import { BG, PRIMARY, SECONDARY, WHITE } from "@styles/colors";
 import { FONT_FAMILY_REGULAR, FONT_FAMILY_SEMIBOLD, FONT_SIZE_13 } from "@styles/typography";
 
 //store
-import { filters } from "@store/index";
+import { filtersStore } from "@store/index";
 
 export default observer(function Category({ title }) {
   const capitalizeTitle = title[0].toUpperCase() + title.slice(1).toLowerCase();
-  const active = filters.dishFilter === title;
+  const active = filtersStore.dishFilter === title;
   return (
     <View style={{ padding: 4 }}>
       <Pressable
         style={[styles.dishContainer, { backgroundColor: active ? PRIMARY : WHITE }]}
-        onPress={() => filters.changeDishFilter(title)}
+        onPress={() => filtersStore.changeDishFilter(title)}
       >
         <Text
           style={[

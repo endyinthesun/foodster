@@ -32,7 +32,7 @@ module.exports = {
           "@organisms": "./src/components/organisms",
           "@navigations": "./src/navigations",
           "@screens": "./src/screens",
-          "@services": "./services",
+          "@services": "./src/services",
           "@styles": "./src/styles",
           "@utils": "./src/utils",
           "@store": "./src/store",

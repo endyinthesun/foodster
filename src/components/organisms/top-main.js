@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+// import LinearGradient from "react-native-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient";
 
 //styles
 import { WHITE, BLUE, PRIMARY } from "@styles/colors";

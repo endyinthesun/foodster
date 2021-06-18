@@ -7,6 +7,7 @@ import Categories from "./categories";
 import OptionalFilters from "./optional-filters";
 import CuisineFilters from "./cuisine-filters";
 import ModalFilterMenu from "./modal-filter-menu";
+import NewRestaurants from "./new-restaurants";
 
 export {
   TopMain,
@@ -18,4 +19,5 @@ export {
   OptionalFilters,
   CuisineFilters,
   ModalFilterMenu,
+  NewRestaurants,
 };

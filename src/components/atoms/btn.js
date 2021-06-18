@@ -2,7 +2,7 @@ import React from "react";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 
 //styles
-import { PRIMARY, WHITE } from "@styles/colors";
+import { GRAY, PRIMARY, TRANSPARENT, WHITE } from "@styles/colors";
 import { FONT_SIZE_16, FONT_FAMILY_SEMIBOLD } from "@styles/typography";
 
 //SVGs
@@ -14,9 +14,13 @@ import ArrowRight from "@icons/arrow-right.svg";
 
 export default function Btn({ title, handle, type = "", num = null, outStyles }) {
   const validNumber = type === "number" && Number.isInteger(+num);
+  const zeroNumber = validNumber && +num === 0;
+
   const validPrice = type === "price" && Number.isInteger(+num);
 
-  const numberContent = <Text style={styles.btnText}>({num})</Text>;
+  const numberContent = (
+    <Text style={[styles.btnText, { color: zeroNumber ? TRANSPARENT : WHITE }]}>({num})</Text>
+  );
   const priceContent = (
     <View style={styles.priceContent}>
       <BagIcon fill='#fff' style={{ marginRight: 8 }} />
@@ -28,7 +32,14 @@ export default function Btn({ title, handle, type = "", num = null, outStyles })
   return (
     <Pressable
       onPress={() => handle()}
-      style={[styles.btn, { justifyContent: validPrice ? "space-between" : "center" }, outStyles]}
+      style={[
+        styles.btn,
+        {
+          justifyContent: validPrice ? "space-between" : "center",
+          backgroundColor: zeroNumber ? GRAY : PRIMARY,
+        },
+        outStyles,
+      ]}
     >
       <Text style={styles.btnText}>{title} </Text>
       <Text>{validNumber ? numberContent : validPrice ? priceContent : null}</Text>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { FlatList, StyleSheet, Text } from "react-native";
-import { DISHES_DATA } from "@assets/data";
+import { DISHES_DATA } from "../../assets/data";
 
 //components
 import { Category } from "@atoms/index";
@@ -11,7 +11,7 @@ export default function Categories({ content }) {
     <FlatList
       contentContainerStyle={styles.dishesList}
       data={content}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id.toString()}
       horizontal
       showsHorizontalScrollIndicator={false}
       renderItem={({ item: { title } }) => <Category title={title} />}

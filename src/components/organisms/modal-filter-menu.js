@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, View, StyleSheet, Text, Pressable, SafeAreaView } from "react-native";
+import { Modal, View, StyleSheet, Text, Pressable, SafeAreaView } from "react-native";
 import { observer } from "mobx-react-lite";
 
 //SVGs
@@ -10,10 +10,10 @@ import CuisineFilters from "./cuisine-filters";
 import OptionalFilters from "./optional-filters";
 
 //store
-import { filters, others } from "@store/index";
+import { filtersStore, othersStore } from "@store/index";
 import { WHITE, WHITE_TRANSPARENT } from "@styles/colors";
 import { FONT_FAMILY_SEMIBOLD, FONT_SIZE_20 } from "@styles/typography";
-import { OPTIONAL_FILTERS_DATA, CUISINE_FILTERS_DATA } from "@assets/data";
+import { OPTIONAL_FILTERS_DATA, CUISINE_FILTERS_DATA } from "../../assets/data";
 import { Btn } from "@atoms/index";
 
 export default observer(function ModalFilterMenu() {
@@ -22,24 +22,24 @@ export default observer(function ModalFilterMenu() {
 
   const amountFilters = cuisineFilter.length + optionalFilter.length;
   const closeModal = () => {
-    others.toggleModalVisible();
-    setOptionalFilter(filters.optionalFilters.slice());
-    setCuisineFilter(filters.cuisineFilters.slice());
+    othersStore.toggleModalVisible();
+    setOptionalFilter(filtersStore.optionalFilters.slice());
+    setCuisineFilter(filtersStore.cuisineFilters.slice());
   };
   const applyFilters = () => {
-    filters.setOptionalFilters(optionalFilter);
-    filters.setCuisineFilters(cuisineFilter);
-    others.toggleModalVisible();
+    filtersStore.setOptionalFilters(optionalFilter);
+    filtersStore.setCuisineFilters(cuisineFilter);
+    othersStore.toggleModalVisible();
   };
 
   return (
     <View>
       <Modal
-        visible={others.modalVisible}
+        visible={othersStore.modalVisible}
         animationType={"slide"}
         transparent={true}
         onRequestClose={() => {
-          others.toggleModalVisible();
+          othersStore.toggleModalVisible();
         }}
       >
         <SafeAreaView style={styles.safeContainer}>
