@@ -11,7 +11,8 @@ import {
 import { observer } from "mobx-react-lite";
 
 //components
-import { Header, Place, ModalFilterMenu, Categories } from "@organisms/index";
+import { Header, ModalFilterMenu, Categories } from "@organisms/index";
+import { Place } from "@molecules/index";
 
 //SVGs
 import Filter from "@icons/filter.svg";

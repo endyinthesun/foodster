@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
-import { BLACK, PRIMARY, SECONDARY, WHITE } from "@styles/colors";
+import { BLACK, SECONDARY, WHITE } from "@styles/colors";
 
 //SVGs
 import Clock from "@icons/clock.svg";

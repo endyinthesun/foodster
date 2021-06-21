@@ -1,14 +1,24 @@
 {
   "restaurants":  [
     {
-      "placeName": "Family place",
-      "cuisineType": "Ukrainian",
+      "placeName": "Bellissimo",
+      "cuisineType": "Italian",
       "deliveryTime": [10, 15],
       "rate": 5,
       "imgUri": "https://via.placeholder.com/150/8f209a",
       "dishes": ["Pizza", "Snacks", "Lunch", "Soups"],
       "optional":  ["Popular", "High ratings"],
-      "id": 1
+      "id": 1,
+      "freeFrom": 100,
+      "description": "Bellicimo – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Kek",
@@ -21,8 +31,8 @@
       "id": 2
     },
     {
-      "placeName": "Bellissimo",
-      "cuisineType": "Italian",
+      "placeName": "Family place",
+      "cuisineType": "Ukrainian",
       "deliveryTime": [25, 30],
       "rate": 4.8,
       "imgUri": "https://via.placeholder.com/150/771796",
