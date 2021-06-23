@@ -18,7 +18,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-08-19T23:15:30.000Z"
     },
     {
       "placeName": "Kek",
@@ -38,7 +39,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2021-02-19T23:15:30.000Z"
     },
     {
       "placeName": "Family place",
@@ -58,7 +60,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2021-02-19T23:15:30.000Z"
     },
     {
       "placeName": "Andante lake",
@@ -78,7 +81,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2021-05-01T23:15:30.000Z"
     },
     {
       "placeName": "Mama mio pizza",
@@ -98,7 +102,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2021-01-01T23:15:30.000Z"
     },
     {
       "placeName": "Family Yard",
@@ -118,7 +123,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-12-19T23:15:30.000Z"
     },
     {
       "placeName": "Lorem",
@@ -138,7 +144,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-11-25T23:15:30.000Z"
     },
     {
       "placeName": "Kvadrat Sushi Pizza",
@@ -158,7 +165,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-02-02T23:15:30.000Z"
     },
     {
       "placeName": "Taco Bell",
@@ -178,7 +186,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-08-01T23:15:30.000Z"
     },
     {
       "placeName": "Subways",
@@ -198,7 +207,8 @@
       "socialLinks": {
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
-      }
+      },
+      "dateOfCreation": "2020-01-01T23:15:30.000Z"
     }
   ],
   "comments": [
