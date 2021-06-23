@@ -24,21 +24,41 @@
       "placeName": "Kek",
       "cuisineType": "Ukrainian",
       "deliveryTime": [10, 15],
-      "rate": 5,
+      "rate": 3,
       "imgUri": "https://via.placeholder.com/150/810b14",
       "dishes": ["Pizza", "Snacks", "Lunch"],
       "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
-      "id": 2
+      "id": 2,
+      "freeFrom": 50,
+      "description": "Kek – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Family place",
       "cuisineType": "Ukrainian",
       "deliveryTime": [25, 30],
-      "rate": 4.8,
+      "rate": 4.2,
       "imgUri": "https://via.placeholder.com/150/771796",
       "dishes": ["Pizza", "Lunch", "Fastfood", "Desserts", "Soups"],
       "optional":  [ "Free delivery", "Fast delivery", "High rating"],
-      "id": 3
+      "id": 3,
+      "freeFrom": 50,
+      "description": "Family place – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Andante lake",
@@ -48,7 +68,17 @@
       "imgUri": "https://via.placeholder.com/150/24f355",
       "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Desserts", "Soups"],
       "optional":  ["Free delivery"],
-      "id": 4
+      "id": 4,
+      "freeFrom": 50,
+      "description": "Andante lake – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "10:00 - 20:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Mama mio pizza",
@@ -58,7 +88,17 @@
       "imgUri": "https://via.placeholder.com/150/d32776",
       "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
       "optional":  ["Popular", "Free delivery"],
-      "id": 5
+      "id": 5,
+      "freeFrom": 50,
+      "description": "Mama mio pizza – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Family Yard",
@@ -68,7 +108,17 @@
       "imgUri": "https://via.placeholder.com/150/f66b97",
       "dishes": ["Pizza", "Snacks", "Fastfood", "Desserts", "Soups"],
       "optional":  ["High ratings"],
-      "id": 6
+      "id": 6,
+      "freeFrom": 50,
+      "description": "Family Yard – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Lorem",
@@ -78,17 +128,37 @@
       "imgUri": "https://via.placeholder.com/150/56a8c2",
       "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
       "optional":  ["Popular", "Free delivery"],
-      "id": 7
+      "id": 7,
+      "freeFrom": 50,
+      "description": "Lorem – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
-      "placeName": "Sushi",
+      "placeName": "Kvadrat Sushi Pizza",
       "cuisineType": "Asian",
       "deliveryTime": [10, 15],
       "rate": 5,
       "imgUri": "https://via.placeholder.com/150/b0f7cc",
       "dishes": ["Pizza", "Sushi", "Snacks", "Salads", "Soups"],
       "optional":  [ "Free delivery", "High rating"],
-      "id": 8
+      "id": 8,
+      "freeFrom": 50,
+      "description": "Kvadrat Sushi Pizza – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Taco Bell",
@@ -98,7 +168,17 @@
       "imgUri": "https://via.placeholder.com/150/54176f",
       "dishes": ["Pizza", "Snacks", "Lunch", "Fastfood", "Salads", "Soups"],
       "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
-      "id": 9
+      "id": 9,
+      "freeFrom": 50,
+      "description": "Taco Bell – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "11:00 - 22:00, 7 days / week",
+      "deliverySchedule": "12:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     },
     {
       "placeName": "Subways",
@@ -108,7 +188,17 @@
       "imgUri": "https://via.placeholder.com/150/51aa97",
       "dishes": ["Pizza", "Snacks", "Lunch", "Desserts", "Salads"],
       "optional":  ["Popular", "Free delivery", "Fast delivery", "High rating"],
-      "id": 10
+      "id": 10,
+      "freeFrom": 120,
+      "description": "Subways – is a family-run Italian restaurant. Best pizza, home-made Italian cuisine, friendly atmosphere, wine, personality in every pizzeria.",
+      "phoneNumbers": ["0112001100"],
+      "email": "bellicimo@mail.com",
+      "workingTime": "10:00 - 22:00, 7 days / week",
+      "deliverySchedule": "11:00 - 20:00, 7 days / week",
+      "socialLinks": {
+        "inst": "https://www.instagram.com/",
+        "facebook": "https://www.facebook.com/"
+      }
     }
   ],
   "comments": [
