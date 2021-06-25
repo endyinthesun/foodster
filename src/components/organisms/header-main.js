@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
-// import LinearGradient from "react-native-linear-gradient";
 import { LinearGradient } from "expo-linear-gradient";
 
 //styles
@@ -15,8 +14,9 @@ import OnTheWayIcon from "@icons/on-the-way.svg";
 import { Logo, Location } from "@atoms";
 import { SearchField } from "@molecules";
 
-export default function TopMain({ city }) {
+export default function HeaderMain({ city }) {
   const [searchValue, setSearchValue] = useState("");
+
   return (
     <View>
       <LinearGradient
@@ -40,13 +40,12 @@ export default function TopMain({ city }) {
 }
 
 const styles = StyleSheet.create({
-  headerContainer: {},
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     height: 180,
     paddingHorizontal: PADDING_HORIZONTAL,
-    paddingTop: 16,
+    paddingTop: 14,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },

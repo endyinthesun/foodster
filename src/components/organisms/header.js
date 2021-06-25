@@ -1,18 +1,18 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 //components
-import { BackBtn, Logo, Location, InfoBtn, SearchBtn } from "@atoms";
+import { BackBtn, Logo, Location, InfoBtn, SearchBtn } from "@atoms/index";
 
 //styles
 import { WHITE, TRANSPARENT } from "@styles/colors";
 import { FONT_FAMILY_MEDIUM, FONT_SIZE_16 } from "@styles/typography";
 import { PADDING_HORIZONTAL } from "@styles/spacing";
+import { SearchField, SearchBar } from "@molecules/index";
 
 //type = [onlyTitle, titleSearch, withLogo, onlyBack, infoSearch]
 export default function Header({ type, title, navigation = null }) {
   const switcher = type === "onlyBack" || type === "infoSearch";
-
   let customProps = {
     typeLeft: null,
     text: null,
@@ -22,11 +22,23 @@ export default function Header({ type, title, navigation = null }) {
     const back = typeLeft === "back";
     const logo = typeLeft === "logo";
     return (
-      <View style={[styles.roundedLeft, { backgroundColor: switcher ? WHITE : TRANSPARENT }]}>
+      <View
+        style={[
+          styles.roundedLeft,
+          {
+            backgroundColor: switcher ? WHITE : TRANSPARENT,
+            alignSelf: logo ? "flex-start" : "center",
+            marginTop: logo ? 14 : 0,
+            height: logo ? "auto" : "100%",
+          },
+        ]}
+      >
         {back ? (
           <BackBtn onPress={navigation.goBack} style={styles.paddingBtn} />
         ) : logo ? (
-          <Logo style={styles.paddingBtn} />
+          <TouchableOpacity onPress={() => navigation.navigate("Main")}>
+            <Logo style={[styles.paddingBtn, { alignSelf: "flex-start" }]} />
+          </TouchableOpacity>
         ) : null}
       </View>
     );
@@ -37,14 +49,15 @@ export default function Header({ type, title, navigation = null }) {
     const info = typeRight === "info";
     const none = typeRight === "none";
     return none ? null : (
-      <View style={[styles.roundedRight, { backgroundColor: switcher ? WHITE : TRANSPARENT }]}>
-        {location ? (
-          <Location city={city} style={styles.paddingBtn} />
-        ) : info ? (
-          <InfoBtn style={styles.paddingBtn} />
-        ) : null}
-        <SearchBtn style={styles.paddingBtn} />
-      </View>
+      <>
+        <View style={[styles.roundedRight, { backgroundColor: switcher ? WHITE : TRANSPARENT }]}>
+          {location ? (
+            <Location city={city} style={styles.paddingBtn} />
+          ) : info ? (
+            <InfoBtn style={styles.paddingBtn} />
+          ) : null}
+        </View>
+      </>
     );
   };
 
@@ -77,14 +90,24 @@ export default function Header({ type, title, navigation = null }) {
   }
 
   return (
-    <View style={[styles.header, { backgroundColor: switcher ? TRANSPARENT : WHITE }]}>
-      <View style={styles.sideWrapper}>
+    <View
+      style={[
+        styles.header,
+        {
+          backgroundColor: switcher ? TRANSPARENT : WHITE,
+          borderBottomLeftRadius: switcher ? 0 : 20,
+          borderBottomRightRadius: switcher ? 0 : 20,
+        },
+      ]}
+    >
+      <View style={[styles.sideWrapper, {}]}>
         <Left typeLeft={customProps.typeLeft} />
       </View>
       <Title text={customProps.text} />
       <View style={[styles.sideWrapper, { justifyContent: "flex-end" }]}>
         <Right typeRight={customProps.typeRight} city={"london"} />
       </View>
+      {type === "onlyBack" ? null : <SearchBar />}
     </View>
   );
 }
@@ -95,8 +118,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    zIndex: 3,
+    overflow: "hidden",
   },
   sideWrapper: {
     flex: 1,
@@ -113,6 +136,8 @@ const styles = StyleSheet.create({
   roundedLeft: {
     paddingLeft: PADDING_HORIZONTAL - 10,
     paddingRight: 20,
+    // flexDirection: "row",
+    flexDirection: "row",
     alignItems: "center",
     borderBottomRightRadius: 100,
     borderTopRightRadius: 100,

@@ -1,3 +1,3 @@
-Before working, install 'localtunnel' globally
+Quickest way to get started:
 
-yarn global add localtunnel
+expo start

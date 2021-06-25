@@ -7,7 +7,7 @@ export default function MainScreen(props) {
     <ScrollView style={{ flex: 1 }}>
       <HeaderMain city={"london"} />
       <Dishes type={"small"} {...props} />
-      <NewRestaurants />
+      <NewRestaurants amount={4} {...props} />
     </ScrollView>
   );
 }

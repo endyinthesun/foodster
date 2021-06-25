@@ -22,24 +22,24 @@ export default observer(function ModalFilterMenu() {
 
   const amountFilters = cuisineFilter.length + optionalFilter.length;
   const closeModal = () => {
-    othersStore.toggleModalVisible();
+    othersStore.toggleModalFilterMenu(false);
     setOptionalFilter(filtersStore.optionalFilters.slice());
     setCuisineFilter(filtersStore.cuisineFilters.slice());
   };
   const applyFilters = () => {
     filtersStore.setOptionalFilters(optionalFilter);
     filtersStore.setCuisineFilters(cuisineFilter);
-    othersStore.toggleModalVisible();
+    othersStore.toggleModalFilterMenu(false);
   };
 
   return (
     <View>
       <Modal
-        visible={othersStore.modalVisible}
+        visible={othersStore.modalFilterMenu}
         animationType={"slide"}
         transparent={true}
         onRequestClose={() => {
-          othersStore.toggleModalVisible();
+          othersStore.toggleModalFilterMenu(false);
         }}
       >
         <SafeAreaView style={styles.safeContainer}>
@@ -77,7 +77,8 @@ export default observer(function ModalFilterMenu() {
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
-    backgroundColor: WHITE_TRANSPARENT,
+    zIndex: 5,
+    // backgroundColor: WHITE_TRANSPARENT,
   },
   container: {
     borderTopLeftRadius: 20,

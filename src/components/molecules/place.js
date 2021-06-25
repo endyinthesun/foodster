@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { View, Text, StyleSheet, Image, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity } from "react-native";
 import { BLACK, SECONDARY, WHITE } from "@styles/colors";
 
 //SVGs
@@ -12,46 +12,84 @@ import {
   FONT_SIZE_16,
 } from "@styles/typography";
 
-export default function Place({ placeName, cuisineType, deliveryTime, rate, imgUri, outStyles }) {
+export default function Place({
+  placeName,
+  cuisineType,
+  deliveryTime,
+  rate,
+  imgUri,
+  outStyles,
+  freeFrom,
+  description,
+  phoneNumbers,
+  email,
+  workingTime,
+  deliverySchedule,
+  socialLinks,
+  navigation,
+  dishes,
+}) {
   const deliver = deliveryTime[1]
     ? `${deliveryTime[0]}-${deliveryTime[1]} min`
     : `${deliveryTime[0]} min`;
 
   const validRate = (value) =>
-    Number.isNaN(value)
-      ? console.log("rate value -- NaN")
-      : Number.isInteger(value)
+    value === undefined
+      ? null
+      : !Number.isNaN(+value) && Number.isInteger(value)
       ? value
       : value.toFixed(1);
-  const correctRate = validRate(+rate);
+  const correctRate = validRate(rate);
+
   return (
-    <View style={[styles.container, outStyles]}>
-      <View style={styles.left}>
-        <View>
-          <Text style={styles.placeName} numberOfLines={1}>
-            {placeName}
-          </Text>
-          <Text style={styles.cuisineType} numberOfLines={1}>
-            {`${cuisineType} cuisine`}
-          </Text>
-        </View>
-        <View style={styles.details}>
-          <View style={styles.delivery}>
-            <Clock style={styles.icon} />
-            <Text style={styles.detailsText}>{deliver}</Text>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Place", {
+          placeName,
+          cuisineType,
+          deliveryTime,
+          rate,
+          imgUri,
+          outStyles,
+          freeFrom,
+          description,
+          phoneNumbers,
+          email,
+          workingTime,
+          deliverySchedule,
+          socialLinks,
+          dishes,
+        })
+      }
+    >
+      <View style={[styles.container, outStyles]}>
+        <View style={styles.left}>
+          <View>
+            <Text style={styles.placeName} numberOfLines={1}>
+              {placeName}
+            </Text>
+            <Text style={styles.cuisineType} numberOfLines={1}>
+              {`${cuisineType} cuisine`}
+            </Text>
           </View>
-          {rate === undefined ? null : (
-            <View style={styles.rate}>
-              <Star style={styles.icon} />
-              <Text style={styles.detailsText}>{correctRate}</Text>
+          <View style={styles.details}>
+            <View style={styles.delivery}>
+              <Clock style={styles.icon} />
+              <Text style={styles.detailsText}>{deliver}</Text>
             </View>
-          )}
+            {rate === undefined ? null : (
+              <View style={styles.rate}>
+                <Star style={styles.icon} />
+                <Text style={styles.detailsText}>{correctRate}</Text>
+              </View>
+            )}
+          </View>
+        </View>
+        <View style={styles.right}>
+          <Image source={{ uri: imgUri }} style={styles.rightImg} />
         </View>
       </View>
-      <View style={styles.right}>
-        <Image source={{ uri: imgUri }} style={styles.rightImg} />
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -59,8 +97,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // width: "100%",
-    // width: 296,
     height: 100,
     backgroundColor: WHITE,
     borderRadius: 20,
@@ -110,8 +146,9 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   rightImg: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
     resizeMode: "cover",
+    borderTopRightRadius: 20,
+    borderBottomRightRadius: 20,
   },
 });

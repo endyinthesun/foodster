@@ -2,6 +2,8 @@ import { makeAutoObservable } from "mobx";
 class FiltersStore {
   dishFilter = "All";
 
+  currentPlaceFilter = "All";
+
   optionalFilters = [];
 
   cuisineFilters = [];
@@ -16,7 +18,9 @@ class FiltersStore {
   changeDishFilter(current) {
     this.dishFilter = current;
   }
-
+  changeCurrentPlaceFilter(current) {
+    this.currentPlaceFilter = current;
+  }
   setOptionalFilters(arr) {
     this.optionalFilters = arr;
   }

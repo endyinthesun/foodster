@@ -1,13 +1,19 @@
 import React from "react";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 //SVGs
 import Info from "@icons/info.svg";
 
-export default function InfoBtn({ onPress, style }) {
+//store
+import { othersStore } from "@store/index";
+
+export default function InfoBtn({ style }) {
   return (
-    <Pressable onPress={onPress} style={[{ height: "100%", justifyContent: "center" }, style]}>
+    <TouchableOpacity
+      onPress={() => othersStore.toggleModalAbout(true)}
+      style={[{ height: "100%", justifyContent: "center" }, style]}
+    >
       <Info />
-    </Pressable>
+    </TouchableOpacity>
   );
 }

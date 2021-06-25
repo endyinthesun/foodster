@@ -19,23 +19,38 @@ import {
   FONT_SIZE_13,
   FONT_SIZE_20,
 } from "@styles/typography";
-import { Place } from "@organisms/index";
+import { Place } from "@molecules/index";
 const restaurant = new FoodsterService();
 
-export default function NewRestaurants() {
-  // return <FlatList data={} renderItem={}/>;
+export default function NewRestaurants({ amount, ...props }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     restaurant
       .getAllRestaurants()
       .then((data) => {
-        restaurantsStore.writeRestaurants(data);
+        data.sort(
+          (a, b) => new Date(a.dateOfCreation).getTime() - new Date(b.dateOfCreation).getTime()
+        );
+        restaurantsStore.writeNewRestaurants(data.reverse());
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }, [restaurantsStore.data]);
+  }, [restaurantsStore.newRestaurantsData]);
+  const content = isLoading ? (
+    <ActivityIndicator size='large' color={PRIMARY} />
+  ) : (
+    <FlatList
+      data={restaurantsStore.newRestaurantsData.slice(0, amount)}
+      keyExtractor={(item) => item.id.toString()}
+      showsHorizontalScrollIndicator={false}
+      horizontal
+      renderItem={({ item }) => {
+        return <Place {...item} outStyles={{ width: 296, marginRight: 10 }} {...props} />;
+      }}
+    />
+  );
 
   return (
     <View style={styles.container}>
@@ -46,25 +61,7 @@ export default function NewRestaurants() {
           <ArrowLineRight />
         </View>
       </View>
-      {isLoading ? (
-        <ActivityIndicator size='large' color={PRIMARY} />
-      ) : (
-        <FlatList
-          data={restaurantsStore.data.slice(0, 3)}
-          keyExtractor={(item) => item.id.toString()}
-          horizontal
-          renderItem={({ item }) => (
-            <Place
-              placeName={item.placeName}
-              cuisineType={item.cuisineType}
-              deliveryTime={item.deliveryTime}
-              // rate={item.rate}
-              imgUri={item.imgUri}
-              outStyles={{ width: 296, marginRight: 10 }}
-            />
-          )}
-        />
-      )}
+      {content}
     </View>
   );
 }
@@ -78,6 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 18,
   },
   title: {
     color: BLACK,

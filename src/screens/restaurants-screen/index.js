@@ -1,2 +1,2 @@
-import RestaurantsScreen from "./restaurants";
+import RestaurantsScreen from "./restaurants-screen";
 export default RestaurantsScreen;

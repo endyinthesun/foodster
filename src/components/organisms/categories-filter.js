@@ -1,20 +1,20 @@
 import React from "react";
 
 import { FlatList, StyleSheet, Text } from "react-native";
-import { DISHES_DATA } from "../../assets/data";
 
 //components
 import { Category } from "@atoms/index";
 
-export default function Categories({ content }) {
+export default function CategoriesFilter({ content, type }) {
+  const id = require("shortid");
   return (
     <FlatList
       contentContainerStyle={styles.dishesList}
       data={content}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={() => id.generate()}
       horizontal
       showsHorizontalScrollIndicator={false}
-      renderItem={({ item: { title } }) => <Category title={title} />}
+      renderItem={({ item }) => <Category title={item} type={type} />}
     />
   );
 }

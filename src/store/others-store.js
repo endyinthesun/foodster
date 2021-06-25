@@ -1,16 +1,17 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeAutoObservable, observable, action } from "mobx";
 class OthersStore {
-  modalVisible = false;
+  modalFilterMenu = false;
+  modalAbout = false;
 
   constructor() {
-    makeObservable(this, {
-      modalVisible: observable,
-      toggleModalVisible: action,
-    });
+    makeAutoObservable(this);
   }
 
-  toggleModalVisible() {
-    this.modalVisible = !this.modalVisible;
+  toggleModalFilterMenu(toggle) {
+    this.modalFilterMenu = toggle;
+  }
+  toggleModalAbout(toggle) {
+    this.modalAbout = toggle;
   }
 }
 

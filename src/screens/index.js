@@ -1,11 +1,11 @@
-// import LoginScreen from "./login";
-import MainScreen from "./main";
-import RestaurantsScreen from "./restaurants";
-import MyOrderScreen from "./my-order";
-import PromotionsScreen from "./promotions";
-import ProfileScreen from "./profile";
-import MoreDishesScreen from "./more-dishes";
-import PlacesScreen from "./places";
+// import LoginScreen from "./login-screen";
+import MainScreen from "./main-screen";
+import RestaurantsScreen from "./restaurants-screen";
+import MyOrderScreen from "./my-order-screen";
+import PromotionsScreen from "./promotions-screen";
+import ProfileScreen from "./profile-screen";
+import MoreDishesScreen from "./more-dishes-screen";
+import PlaceScreen from "./place-screen";
 
 export {
   // LoginScreen,
@@ -14,6 +14,6 @@ export {
   MyOrderScreen,
   PromotionsScreen,
   ProfileScreen,
-  PlacesScreen,
+  PlaceScreen,
   MoreDishesScreen,
 };

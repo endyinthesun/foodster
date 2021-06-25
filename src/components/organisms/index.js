@@ -1,23 +1,23 @@
-import TopMain from "./top-main";
+import HeaderMain from "./header-main";
 import Dishes from "./dishes";
 import BottomBar from "./bottom-bar";
 import Header from "./header";
-import Place from "./place";
-import Categories from "./categories";
+import CategoriesFilter from "./categories-filter";
 import OptionalFilters from "./optional-filters";
 import CuisineFilters from "./cuisine-filters";
 import ModalFilterMenu from "./modal-filter-menu";
+import ModalAbout from "./modal-about";
 import NewRestaurants from "./new-restaurants";
 
 export {
-  TopMain,
+  HeaderMain,
   Dishes,
   BottomBar,
   Header,
-  Place,
-  Categories,
+  CategoriesFilter,
   OptionalFilters,
   CuisineFilters,
   ModalFilterMenu,
+  ModalAbout,
   NewRestaurants,
 };

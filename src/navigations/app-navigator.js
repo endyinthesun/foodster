@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 //styles
@@ -29,64 +30,80 @@ import {
   MyOrderScreen,
   PromotionsScreen,
   ProfileScreen,
-  PlacesScreen,
+  PlaceScreen,
   MoreDishesScreen,
-} from "@screens";
+} from "@screens/index";
 
 //components
-import { BottomBar } from "@organisms";
+import { BottomBar } from "@organisms/index";
 
 export default function AppNavigator() {
-  const Root = createBottomTabNavigator();
+  const TabNav = createBottomTabNavigator();
   const MainStack = createStackNavigator();
 
-  const MainStackScreen = () => (
-    <MainStack.Navigator>
-      <MainStack.Screen name='Categories' component={MainScreen} options={{ headerShown: false }} />
-      {/*<MainStack.Screen name='DishCategory' component={PlacesScreen} options={{ headerShown: false }} />*/}
-      <MainStack.Screen
-        name='MoreDishes'
-        component={MoreDishesScreen}
-        title={"Dishes"}
-        options={{
-          title: "Dishes",
-          headerShown: false,
-        }}
+  const TabNavScreen = () => (
+    <TabNav.Navigator
+      // tabBarPosition={"bottom"}
+      tabBarVisible={false}
+      tabBar={(props) => <BottomBar {...props} />}
+    >
+      <TabNav.Screen
+        name='Main'
+        component={MainScreen}
+        options={{ icon: <MainIcon />, iconActive: <MainActiveIcon /> }}
       />
-    </MainStack.Navigator>
+      <TabNav.Screen
+        name='Restaurants'
+        component={RestaurantsScreen}
+        options={{ icon: <PlacesIcon />, iconActive: <PlacesActiveIcon /> }}
+      />
+      <TabNav.Screen
+        name='My order'
+        component={MyOrderScreen}
+        options={{ icon: <BagIcon />, iconActive: <BagActiveIcon /> }}
+      />
+      <TabNav.Screen
+        name='Promotions'
+        component={PromotionsScreen}
+        options={{ icon: <PromoIcon />, iconActive: <PromoActiveIcon /> }}
+      />
+      <TabNav.Screen
+        name='Profile'
+        component={ProfileScreen}
+        options={{ icon: <UserIcon />, iconActive: <UserActiveIcon /> }}
+      />
+    </TabNav.Navigator>
   );
 
   return (
     <View style={{ flex: 1, backgroundColor: WHITE }}>
       <SafeAreaView style={{ flex: 1 }}>
         <NavigationContainer>
-          <Root.Navigator tabBarVisible={false} tabBar={(props) => <BottomBar {...props} />}>
-            <Root.Screen
+          <MainStack.Navigator>
+            <MainStack.Screen
               name='Main'
-              component={MainStackScreen}
-              options={{ icon: <MainIcon />, iconActive: <MainActiveIcon /> }}
+              component={TabNavScreen}
+              options={{ headerShown: false }}
             />
-            <Root.Screen
-              name='Restaurants'
-              component={RestaurantsScreen}
-              options={{ icon: <PlacesIcon />, iconActive: <PlacesActiveIcon /> }}
+            <MainStack.Screen
+              name='MoreDishes'
+              component={MoreDishesScreen}
+              title={"Dishes"}
+              options={{
+                title: "Dishes",
+                headerShown: false,
+              }}
             />
-            <Root.Screen
-              name='My order'
-              component={MyOrderScreen}
-              options={{ icon: <BagIcon />, iconActive: <BagActiveIcon /> }}
+            <MainStack.Screen
+              name='Place'
+              component={PlaceScreen}
+              title={"Place"}
+              options={{
+                title: "Place",
+                headerShown: false,
+              }}
             />
-            <Root.Screen
-              name='Promotions'
-              component={PromotionsScreen}
-              options={{ icon: <PromoIcon />, iconActive: <PromoActiveIcon /> }}
-            />
-            <Root.Screen
-              name='Profile'
-              component={ProfileScreen}
-              options={{ icon: <UserIcon />, iconActive: <UserActiveIcon /> }}
-            />
-          </Root.Navigator>
+          </MainStack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
     </View>

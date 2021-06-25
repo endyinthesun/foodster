@@ -11,8 +11,8 @@ import {
 import { observer } from "mobx-react-lite";
 
 //components
-import { Header, ModalFilterMenu, Categories } from "@organisms/index";
-import { Place } from "@molecules/index";
+import { Header, ModalFilterMenu, CategoriesFilter } from "@organisms/index";
+import { Place, SearchResult } from "@molecules/index";
 
 //SVGs
 import Filter from "@icons/filter.svg";
@@ -27,11 +27,16 @@ import { filtersStore, othersStore, restaurantsStore } from "@store/index";
 //utils
 import FoodsterService from "@services/service";
 import { DISHES_DATA } from "@assets/data";
+import { FadeBg } from "@atoms/index";
+import SearchBar from "@molecules/search-bar";
 
 const restaurant = new FoodsterService();
-export default observer(function RestaurantsScreen({ navigation, route }) {
+export default observer(function RestaurantsScreen(props) {
+  const { navigation } = props;
   const [isLoading, setIsLoading] = useState(true);
-  const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
+  // const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
+  let dishFilters = ["All"];
+  DISHES_DATA.forEach((item) => dishFilters.push(item.title));
 
   useEffect(() => {
     restaurant
@@ -78,14 +83,16 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Header type={"withLogo"} />
+      <FadeBg toggle={othersStore.modalFilterMenu} />
+      <Header type={"withLogo"} navigation={navigation} />
       <View style={styles.container}>
+        <SearchResult />
         <View>
-          <Categories content={dishFilters} />
+          <CategoriesFilter content={dishFilters} type={"restaurants"} />
         </View>
         <View style={styles.head}>
           <Text style={styles.headText}>Restaurants</Text>
-          <Pressable style={styles.filter} onPress={() => othersStore.toggleModalVisible(true)}>
+          <Pressable style={styles.filter} onPress={() => othersStore.toggleModalFilterMenu(true)}>
             <Filter />
             <Text style={styles.filterText}>Filter</Text>
           </Pressable>
@@ -99,16 +106,7 @@ export default observer(function RestaurantsScreen({ navigation, route }) {
             contentContainerStyle={styles.restaurantsList}
             data={filtersData(categoryData)}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <Place
-                placeName={item.placeName}
-                cuisineType={item.cuisineType}
-                deliveryTime={item.deliveryTime}
-                rate={item.rate}
-                imgUri={item.imgUri}
-                outStyles={{ width: "100%" }}
-              />
-            )}
+            renderItem={({ item }) => <Place {...item} outStyles={{ width: "100%" }} {...props} />}
             ListEmptyComponent={noResultText}
           />
         )}

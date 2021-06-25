@@ -1,2 +1,2 @@
-import MoreDishesScreen from "./more-dishes";
+import MoreDishesScreen from "./more-dishes-screen";
 export default MoreDishesScreen;

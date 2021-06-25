@@ -1,2 +1,2 @@
-import PlacesScreen from "./places";
-export default PlacesScreen;
+import PlaceScreen from "./place-screen";
+export default PlaceScreen;

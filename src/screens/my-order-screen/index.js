@@ -1,2 +1,2 @@
-import MyOrderScreen from "./my-order";
+import MyOrderScreen from "./my-order-screen";
 export default MyOrderScreen;
