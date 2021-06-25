@@ -7,6 +7,7 @@ import {
   View,
   ActivityIndicator,
   Pressable,
+  Animated,
 } from "react-native";
 import { observer } from "mobx-react-lite";
 
@@ -33,8 +34,24 @@ import SearchBar from "@molecules/search-bar";
 const restaurant = new FoodsterService();
 export default observer(function RestaurantsScreen(props) {
   const { navigation } = props;
+  const { Value, diffClamp, add } = Animated;
+
   const [isLoading, setIsLoading] = useState(true);
-  // const dishFilters = [{ title: "All", id: 1 }, ...DISHES_DATA];
+  const [scrollYValue] = useState(new Value(0));
+
+  const clampedScroll = diffClamp(
+    add(
+      scrollYValue.interpolate({
+        inputRange: [0, 30],
+        outputRange: [0, 10],
+        extrapolateLeft: "clamp",
+      }),
+      new Value(0)
+    ),
+    0,
+    50
+  );
+
   let dishFilters = ["All"];
   DISHES_DATA.forEach((item) => dishFilters.push(item.title));
 
@@ -87,28 +104,44 @@ export default observer(function RestaurantsScreen(props) {
       <Header type={"withLogo"} navigation={navigation} />
       <View style={styles.container}>
         <SearchResult />
-        <View>
-          <CategoriesFilter content={dishFilters} type={"restaurants"} />
-        </View>
-        <View style={styles.head}>
-          <Text style={styles.headText}>Restaurants</Text>
-          <Pressable style={styles.filter} onPress={() => othersStore.toggleModalFilterMenu(true)}>
-            <Filter />
-            <Text style={styles.filterText}>Filter</Text>
-          </Pressable>
+
+        <View style={{}}>
+          <CategoriesFilter
+            content={dishFilters}
+            type={"restaurants"}
+            clampedScroll={clampedScroll}
+          />
+          <View style={styles.head}>
+            <Text style={styles.headText}>Restaurants</Text>
+            <Pressable
+              style={styles.filter}
+              onPress={() => othersStore.toggleModalFilterMenu(true)}
+            >
+              <Filter />
+              <Text style={styles.filterText}>Filter</Text>
+            </Pressable>
+          </View>
         </View>
         {isLoading ? (
           <View style={styles.spinnerContainer}>
             <ActivityIndicator size='large' color={PRIMARY} />
           </View>
         ) : (
-          <FlatList
-            contentContainerStyle={styles.restaurantsList}
-            data={filtersData(categoryData)}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <Place {...item} outStyles={{ width: "100%" }} {...props} />}
-            ListEmptyComponent={noResultText}
-          />
+          <Animated.View>
+            <Animated.FlatList
+              contentContainerStyle={styles.restaurantsList}
+              data={filtersData(categoryData)}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => (
+                <Place {...item} outStyles={{ width: "100%" }} {...props} />
+              )}
+              ListEmptyComponent={noResultText}
+              onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollYValue } } }], {
+                useNativeDriver: true,
+              })}
+              contentInsetAdjustmentBehavior='automatic'
+            />
+          </Animated.View>
         )}
       </View>
       <ModalFilterMenu />

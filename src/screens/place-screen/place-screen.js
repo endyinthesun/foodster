@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, StyleSheet, ImageBackground, Image, Pressable, Animated } from "react-native";
 import { Header, ModalAbout } from "@organisms/index";
-import { filtersStore, othersStore, restaurantsStore } from "@store/index";
 import { observer } from "mobx-react-lite";
 
 //SVGs
 import Truck from "@icons/truck.svg";
 import Clock from "@icons/clock.svg";
 import Star from "@icons/star.svg";
+
+//store
+import { othersStore } from "@store/index";
 
 //styles
 import { PADDING_HORIZONTAL } from "@styles/spacing";
@@ -18,7 +20,9 @@ import {
   FONT_SIZE_13,
   FONT_SIZE_20,
 } from "@styles/typography";
-import { BLACK, BLUE, WHITE, WHITE_TRANSPARENT } from "@styles/colors";
+import { BLACK, BLUE, WHITE } from "@styles/colors";
+
+//components
 import CategoriesFilter from "@organisms/categories-filter";
 import { FadeBg } from "@atoms/index";
 
@@ -37,10 +41,27 @@ export default observer(function PlaceScreen(props) {
     freeFrom,
     deliverySchedule,
   } = props.route.params;
+  const { Value, diffClamp, add } = Animated;
+
+  const [scrollYValue] = useState(new Value(0));
+
   const deliver = deliveryTime[1]
     ? `${deliveryTime[0]}-${deliveryTime[1]} min`
     : `${deliveryTime[0]} min`;
   const currentPlaceFilters = ["All", ...dishes];
+
+  const clampedScroll = diffClamp(
+    add(
+      scrollYValue.interpolate({
+        inputRange: [0, 30],
+        outputRange: [0, 10],
+        extrapolateLeft: "clamp",
+      }),
+      new Value(0)
+    ),
+    0,
+    50
+  );
 
   return (
     <View style={{ flex: 1 }}>
@@ -54,7 +75,7 @@ export default observer(function PlaceScreen(props) {
               <Text style={styles.cuisineType}>{cuisineType} cuisine</Text>
             </View>
             <View>
-              <View style={styles.logoPlace}></View>
+              <View style={styles.logoPlace} />
             </View>
           </View>
         </ImageBackground>
@@ -78,8 +99,13 @@ export default observer(function PlaceScreen(props) {
         </View>
       </View>
       <View style={styles.categoriesFilter}>
-        <CategoriesFilter content={currentPlaceFilters} type={"place"} />
+        <CategoriesFilter
+          content={currentPlaceFilters}
+          type={"place"}
+          clampedScroll={clampedScroll}
+        />
       </View>
+
       <ModalAbout
         description={description}
         phoneNumbers={phoneNumbers}
@@ -159,5 +185,9 @@ const styles = StyleSheet.create({
   categoriesFilter: {
     marginTop: 25,
     paddingLeft: PADDING_HORIZONTAL,
+  },
+  restaurantsList: {
+    paddingBottom: 32,
+    paddingHorizontal: 13,
   },
 });
