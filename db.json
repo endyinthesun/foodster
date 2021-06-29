@@ -86,53 +86,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2021-02-19T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 4
-        }
-      ]
+      "dateOfCreation": "2021-02-19T23:15:30.000Z"
     },
     {
       "placeName": "Family place",
@@ -153,53 +107,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2021-02-19T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 4
-        }
-      ]
+      "dateOfCreation": "2021-02-19T23:15:30.000Z"
     },
     {
       "placeName": "Andante lake",
@@ -220,53 +128,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2021-05-01T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 4
-        }
-      ]
+      "dateOfCreation": "2021-05-01T23:15:30.000Z"
     },
     {
       "placeName": "Mama mio pizza",
@@ -287,53 +149,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2021-01-01T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 4
-        }
-      ]
+      "dateOfCreation": "2021-01-01T23:15:30.000Z"
     },
     {
       "placeName": "Family Yard",
@@ -354,53 +170,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2020-12-19T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 4
-        }
-      ]
+      "dateOfCreation": "2020-12-19T23:15:30.000Z"
     },
     {
       "placeName": "Lorem",
@@ -421,31 +191,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2020-11-25T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        }
-      ]
+      "dateOfCreation": "2020-11-25T23:15:30.000Z"
     },
     {
       "placeName": "Kvadrat Sushi Pizza",
@@ -466,31 +212,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2020-02-02T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        }
-      ]
+      "dateOfCreation": "2020-02-02T23:15:30.000Z"
     },
     {
       "placeName": "Taco Bell",
@@ -511,42 +233,7 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2020-08-01T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        },
-        {
-          "title": "Harbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Pizza",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 3
-        }
-      ]
+      "dateOfCreation": "2020-08-01T23:15:30.000Z"
     },
     {
       "placeName": "Subways",
@@ -567,31 +254,11 @@
         "inst": "https://www.instagram.com/",
         "facebook": "https://www.facebook.com/"
       },
-      "dateOfCreation": "2020-01-01T23:15:30.000Z",
-      "menu": [
-        {
-          "title": "Spaghetti carbonara",
-          "ingredients": [
-            "spaghetti with bacon", "egg and cream"
-          ],
-          "price": 196,
-          "weight": 330,
-          "dishesType": "Lunch",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 1
-        },
-        {
-          "title": "Penne al boscayola",
-          "ingredients": [
-            "penne with mushrooms","ham", "tomatoes and cream"
-          ],
-          "price": 79,
-          "weight": 260,
-          "dishesType": "Snacks",
-          "imgUri": "https://picsum.photos/200/300",
-          "id": 2
-        }
-      ]
+      "dateOfCreation": "2020-01-01T23:15:30.000Z"
     }
-  ]
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
 }
