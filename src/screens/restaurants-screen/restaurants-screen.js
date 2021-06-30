@@ -13,7 +13,7 @@ import { observer } from "mobx-react-lite";
 
 //components
 import { Header, ModalFilterMenu, CategoriesFilter } from "@organisms/index";
-import { Place, SearchResult } from "@molecules/index";
+import { PlaceItem, SearchResult } from "@molecules/index";
 
 //SVGs
 import Filter from "@icons/filter.svg";
@@ -30,12 +30,12 @@ import FoodsterService from "@services/service";
 import { DISHES_DATA } from "@assets/data";
 import { FadeBg } from "@atoms/index";
 import SearchBar from "@molecules/search-bar";
+import { ITEM_HEIGHT } from "@styles/spacing";
 
 const restaurant = new FoodsterService();
 export default observer(function RestaurantsScreen(props) {
   const { navigation } = props;
   const { Value, diffClamp, add } = Animated;
-
   const [isLoading, setIsLoading] = useState(true);
   const [scrollYValue] = useState(new Value(0));
 
@@ -52,14 +52,20 @@ export default observer(function RestaurantsScreen(props) {
     50
   );
 
+  const categoriesTranslate = clampedScroll.interpolate({
+    inputRange: [0, 150],
+    outputRange: [0, -170],
+    extrapolate: "clamp",
+  });
+
   let dishFilters = ["All"];
   DISHES_DATA.forEach((item) => dishFilters.push(item.title));
 
   useEffect(() => {
     restaurant
-      .getAllRestaurants()
+      .getAllRestaurantsItems()
       .then((data) => {
-        restaurantsStore.writeRestaurants(data);
+        restaurantsStore.writeRestaurantsItems(data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -96,16 +102,26 @@ export default observer(function RestaurantsScreen(props) {
     }
     return cuisine;
   };
-  const noResultText = <Text style={styles.noResultText}> No results found 😟 </Text>;
+  const noResultText = <Text style={styles.noResultText}> Nothing to view 😟 </Text>;
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FadeBg toggle={othersStore.modalFilterMenu} />
       <Header type={"withLogo"} navigation={navigation} />
-      <View style={styles.container}>
-        <SearchResult />
-
-        <View style={{}}>
+      <SearchResult />
+      <Animated.View
+        style={[
+          styles.container,
+          {
+            transform: [
+              {
+                translateY: categoriesTranslate,
+              },
+            ],
+          },
+        ]}
+      >
+        <View>
           <CategoriesFilter
             content={dishFilters}
             type={"restaurants"}
@@ -132,9 +148,26 @@ export default observer(function RestaurantsScreen(props) {
               contentContainerStyle={styles.restaurantsList}
               data={filtersData(categoryData)}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={({ item }) => (
-                <Place {...item} outStyles={{ width: "100%" }} {...props} />
-              )}
+              renderItem={({ item, index }) => {
+                const inputRange = [
+                  -1,
+                  0,
+                  (ITEM_HEIGHT + 12) * index,
+                  (ITEM_HEIGHT + 12) * (index + 2),
+                ];
+                const scale = scrollYValue.interpolate({
+                  inputRange,
+                  outputRange: [1, 1, 1, 0],
+                });
+                return (
+                  <PlaceItem
+                    {...item}
+                    {...props}
+                    scale={scale}
+                    outStyles={{ height: ITEM_HEIGHT }}
+                  />
+                );
+              }}
               ListEmptyComponent={noResultText}
               onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollYValue } } }], {
                 useNativeDriver: true,
@@ -143,7 +176,7 @@ export default observer(function RestaurantsScreen(props) {
             />
           </Animated.View>
         )}
-      </View>
+      </Animated.View>
       <ModalFilterMenu />
     </SafeAreaView>
   );
@@ -153,6 +186,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 3,
+    paddingBottom: 56,
   },
   spinnerContainer: {
     alignItems: "center",

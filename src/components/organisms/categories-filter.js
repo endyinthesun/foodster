@@ -4,6 +4,7 @@ import { FlatList, StyleSheet, Text, View, Animated } from "react-native";
 
 //components
 import { Category } from "@atoms/index";
+import { PADDING_HORIZONTAL } from "@styles/spacing";
 
 export default function CategoriesFilter({ content, type, clampedScroll }) {
   const id = require("shortid");
@@ -11,14 +12,10 @@ export default function CategoriesFilter({ content, type, clampedScroll }) {
   //scroll animation
   const categoriesTranslate = clampedScroll.interpolate({
     inputRange: [0, 150],
-    outputRange: [0, -60],
+    outputRange: [0, -100],
     extrapolate: "clamp",
   });
-  const categoriesOpacity = clampedScroll.interpolate({
-    inputRange: [0, 50],
-    outputRange: [1, 0],
-    extrapolate: "clamp",
-  });
+
   return (
     <Animated.View
       style={{
@@ -27,7 +24,7 @@ export default function CategoriesFilter({ content, type, clampedScroll }) {
             translateY: categoriesTranslate,
           },
         ],
-        opacity: categoriesOpacity,
+        paddingLeft: PADDING_HORIZONTAL - 5,
       }}
     >
       <FlatList
@@ -36,7 +33,9 @@ export default function CategoriesFilter({ content, type, clampedScroll }) {
         keyExtractor={() => id.generate()}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <Category title={item} type={type} />}
+        renderItem={({ item }) => (
+          <Category title={item} type={type} clampedScroll={clampedScroll} />
+        )}
       />
     </Animated.View>
   );
@@ -46,5 +45,7 @@ const styles = StyleSheet.create({
   dishesList: {
     marginTop: 14,
     flexDirection: "row",
+    paddingVertical: 5,
+    paddingLeft: 5,
   },
 });

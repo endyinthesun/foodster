@@ -27,28 +27,12 @@ import CategoriesFilter from "@organisms/categories-filter";
 import { FadeBg } from "@atoms/index";
 import { DishItem } from "@molecules/index";
 
-export default observer(function PlaceScreen(props) {
-  const {
-    placeName,
-    imgUri,
-    deliveryTime,
-    cuisineType,
-    rate,
-    dishes,
-    description,
-    phoneNumbers,
-    email,
-    workingTime,
-    freeFrom,
-    deliverySchedule,
-  } = props.route.params;
+export default observer(function DishScreen(props) {
+  const { title, ingredients, price, weight, imgUri, id } = props.route.params;
   const { Value, diffClamp, add } = Animated;
 
   const [scrollYValue] = useState(new Value(0));
-  console.log("props.route.params-- ", props.route.params);
-  const deliver = deliveryTime[1]
-    ? `${deliveryTime[0]}-${deliveryTime[1]} min`
-    : `${deliveryTime[0]} min`;
+
   const currentPlaceFilters = ["All", ...dishes];
 
   const clampedScroll = diffClamp(
@@ -72,8 +56,8 @@ export default observer(function PlaceScreen(props) {
           <Header type={"infoSearch"} {...props} />
           <View style={styles.subhead}>
             <View>
-              <Text style={styles.placeName}>{placeName}</Text>
-              <Text style={styles.cuisineType}>{cuisineType} cuisine</Text>
+              {/*<Text style={styles.placeName}>{placeName}</Text>*/}
+              {/*<Text style={styles.cuisineType}>{cuisineType} cuisine</Text>*/}
             </View>
             <View>
               <View style={styles.logoPlace} />
@@ -85,16 +69,16 @@ export default observer(function PlaceScreen(props) {
             <View style={styles.infoBlock}>
               <Truck style={styles.infoIcon} />
               <Text style={styles.infoText}>
-                Free from $<Text style={styles.price}>{freeFrom}</Text>
+                {/*Free from $<Text style={styles.price}>{freeFrom}</Text>*/}
               </Text>
             </View>
             <View style={styles.infoBlock}>
               <Clock style={styles.infoIcon} />
-              <Text style={styles.infoText}>{deliver}</Text>
+              {/*<Text style={styles.infoText}>{deliver}</Text>*/}
             </View>
             <View style={styles.infoBlock}>
               <Star style={styles.infoIcon} />
-              <Text style={styles.infoText}>{rate}</Text>
+              {/*<Text style={styles.infoText}>{rate}</Text>*/}
             </View>
           </View>
         </View>

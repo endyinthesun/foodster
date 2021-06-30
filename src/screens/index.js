@@ -6,6 +6,7 @@ import PromotionsScreen from "./promotions-screen";
 import ProfileScreen from "./profile-screen";
 import MoreDishesScreen from "./more-dishes-screen";
 import PlaceScreen from "./place-screen";
+import DishScreen from "./dish-screen";
 
 export {
   // LoginScreen,
@@ -16,4 +17,5 @@ export {
   ProfileScreen,
   PlaceScreen,
   MoreDishesScreen,
+  DishScreen,
 };

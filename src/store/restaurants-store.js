@@ -1,17 +1,17 @@
 import { makeObservable, observable, action, makeAutoObservable } from "mobx";
 class RestaurantsStore {
   data = [];
-  newRestaurantsData = [];
+  newRestaurantsItems = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  writeRestaurants(arr) {
+  writeRestaurantsItems(arr) {
     this.data = arr;
   }
-  writeNewRestaurants(arr) {
-    this.newRestaurantsData = arr;
+  writeNewRestaurantsItems(arr) {
+    this.newRestaurantsItems = arr;
   }
 }
 

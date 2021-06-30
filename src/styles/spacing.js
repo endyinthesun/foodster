@@ -6,3 +6,6 @@ export const SCALE_8 = scaleSize(8);
 
 //PADDING
 export const PADDING_HORIZONTAL = 16;
+
+//VALUES
+export const ITEM_HEIGHT = 100;

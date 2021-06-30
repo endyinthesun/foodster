@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Keyboard, Platform, StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 
@@ -9,40 +9,8 @@ import RootNavigator from "@navigations/index";
 //styles
 import { BG } from "@styles/colors";
 import { FONT_FAMILY_REGULAR } from "@styles/typography";
-import axios from "axios";
-import API from "./services/api";
 
 export default function App() {
-  // useEffect(() => {
-  //   let allReq = [];
-  //   for (let i = 1; i <= 10; i++) {
-  //     allReq.push(API.get(`/restaurants/${i}`));
-  //   }
-  //   axios
-  //     .all(allReq)
-  //     .then((res) => {
-  //       const data = res.map(
-  //         ({
-  //           data: { placeName, cuisineType, deliveryTime, rate, imgUri, dishes, optional, id },
-  //         }) => ({
-  //           placeName,
-  //           cuisineType,
-  //           deliveryTime,
-  //           rate,
-  //           imgUri,
-  //           dishes,
-  //           optional,
-  //           id,
-  //         })
-  //       );
-  //
-  //       // setRestaurantData(data);
-  //       restaurantsStore.writeRestaurants(data);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   const [loaded] = useFonts({
     SFUIDisplayBold: require("./assets/fonts/SFUIDisplay-Bold.ttf"),
     SFUIDisplayMedium: require("./assets/fonts/SFUIDisplay-Medium.ttf"),
@@ -67,5 +35,3 @@ const styles = StyleSheet.create({
     backgroundColor: BG,
   },
 });
-
-// registerRootComponent(App);

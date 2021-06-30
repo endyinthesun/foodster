@@ -1,5 +1,13 @@
 import React, { Suspense } from "react";
-import { View, Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+  Animated,
+} from "react-native";
 import { BLACK, SECONDARY, WHITE } from "@styles/colors";
 
 //SVGs
@@ -12,22 +20,16 @@ import {
   FONT_SIZE_16,
 } from "@styles/typography";
 
-export default function Place({
+export default function PlaceItem({
+  id,
   placeName,
   cuisineType,
   deliveryTime,
   rate,
   imgUri,
-  outStyles,
-  freeFrom,
-  description,
-  phoneNumbers,
-  email,
-  workingTime,
-  deliverySchedule,
-  socialLinks,
   navigation,
-  dishes,
+  scale,
+  outStyles,
 }) {
   const deliver = deliveryTime[1]
     ? `${deliveryTime[0]}-${deliveryTime[1]} min`
@@ -40,29 +42,16 @@ export default function Place({
       ? value
       : value.toFixed(1);
   const correctRate = validRate(rate);
-
   return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("Place", {
-          placeName,
-          cuisineType,
-          deliveryTime,
-          rate,
-          imgUri,
-          outStyles,
-          freeFrom,
-          description,
-          phoneNumbers,
-          email,
-          workingTime,
-          deliverySchedule,
-          socialLinks,
-          dishes,
-        })
-      }
-    >
-      <View style={[styles.container, outStyles]}>
+    <Animated.View style={{ transform: [{ scale: scale ? scale : 1 }] }}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("Place", {
+            id,
+          })
+        }
+        style={[styles.container, outStyles]}
+      >
         <View style={styles.left}>
           <View>
             <Text style={styles.placeName} numberOfLines={1}>
@@ -86,10 +75,14 @@ export default function Place({
           </View>
         </View>
         <View style={styles.right}>
-          <Image source={{ uri: imgUri }} style={styles.rightImg} />
+          <Image
+            source={{ uri: imgUri }}
+            style={styles.rightImg}
+            loadingIndicatorSource={<ActivityIndicator />}
+          />
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Animated.View>
   );
 }
 
@@ -97,11 +90,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: 100,
     backgroundColor: WHITE,
     borderRadius: 20,
-    overflow: "hidden",
-    marginBottom: 10,
+    marginBottom: 12,
+    shadowColor: BLACK,
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
   },
   left: {
     flex: 2,

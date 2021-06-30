@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { Text, View, StyleSheet, Animated, useWindowDimensions, Easing } from "react-native";
+import { StyleSheet, Animated, useWindowDimensions, Easing } from "react-native";
 
 //styles
 import { WHITE, WHITE_TRANSPARENT } from "@styles/colors";
@@ -66,7 +66,7 @@ export default function FadeBg({ toggle }) {
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
         style={{ flex: 1 }}
-      ></LinearGradient>
+      />
     </Animated.View>
   );
 }

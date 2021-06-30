@@ -2,7 +2,6 @@ import { makeAutoObservable, observable, action } from "mobx";
 class OthersStore {
   modalFilterMenu = false;
   modalAbout = false;
-
   constructor() {
     makeAutoObservable(this);
   }

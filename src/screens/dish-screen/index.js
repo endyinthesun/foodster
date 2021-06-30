@@ -1,2 +1,2 @@
-import PlaceScreen from "./place-screen";
+import PlaceScreen from "./dish-screen";
 export default PlaceScreen;

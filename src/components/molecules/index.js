@@ -1,7 +1,8 @@
 import SearchField from "./search-field";
 import DishCategory from "./dish-category";
-import Place from "./place";
+import PlaceItem from "./place-item";
 import SearchBar from "./search-bar";
 import SearchResult from "./search-result";
+import DishItem from "./dish-item";
 
-export { SearchField, DishCategory, Place, SearchBar, SearchResult };
+export { SearchField, DishCategory, PlaceItem, SearchBar, SearchResult, DishItem };

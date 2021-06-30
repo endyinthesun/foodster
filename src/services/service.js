@@ -1,16 +1,23 @@
 import API from "./api";
 
 export default class FoodsterService {
-  async getAllRestaurants() {
+  async getAllRestaurantsItems() {
     try {
-      const response = await API.get("/restaurants/");
+      const response = await API.get("/restaurantsItems/");
       return response.data;
     } catch (error) {
-      throw new Error(`Unable to get countries that use `);
+      throw new Error(`Something goes wrong `);
     }
   }
   async getRestaurant(id) {
-    const product = null;
-    return product;
+    try {
+      const item = await API.get(`/restaurantsItems/${id}`);
+      const restaurant = await API.get(`/restaurants/${id}`);
+      delete item.data.id;
+      const res = Object.assign(item.data, restaurant.data);
+      return res;
+    } catch (error) {
+      throw new Error(`Something goes wrong `);
+    }
   }
 }

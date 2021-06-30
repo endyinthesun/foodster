@@ -9,7 +9,7 @@ import { restaurantsStore } from "@store/index";
 
 //styles
 import { BLACK, BLUE, PRIMARY, WHITE } from "@styles/colors";
-import { PADDING_HORIZONTAL } from "@styles/spacing";
+import { ITEM_HEIGHT, PADDING_HORIZONTAL } from "@styles/spacing";
 
 //services
 import FoodsterService from "@services/service";
@@ -19,36 +19,42 @@ import {
   FONT_SIZE_13,
   FONT_SIZE_20,
 } from "@styles/typography";
-import { Place } from "@molecules/index";
+import { PlaceItem } from "@molecules/index";
 const restaurant = new FoodsterService();
 
 export default function NewRestaurants({ amount, ...props }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     restaurant
-      .getAllRestaurants()
+      .getAllRestaurantsItems()
       .then((data) => {
-        data.sort(
-          (a, b) => new Date(a.dateOfCreation).getTime() - new Date(b.dateOfCreation).getTime()
-        );
-        restaurantsStore.writeNewRestaurants(data.reverse());
+        const res = data
+          .sort(
+            (a, b) => new Date(a.dateOfCreation).getTime() - new Date(b.dateOfCreation).getTime()
+          )
+          .reverse();
+        restaurantsStore.writeNewRestaurantsItems(res);
         setIsLoading(false);
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }, [restaurantsStore.newRestaurantsData]);
+  }, []);
   const content = isLoading ? (
     <ActivityIndicator size='large' color={PRIMARY} />
   ) : (
     <FlatList
-      data={restaurantsStore.newRestaurantsData.slice(0, amount)}
+      data={restaurantsStore.newRestaurantsItems.slice(0, amount)}
       keyExtractor={(item) => item.id.toString()}
       showsHorizontalScrollIndicator={false}
       horizontal
-      renderItem={({ item }) => {
-        return <Place {...item} outStyles={{ width: 296, marginRight: 10 }} {...props} />;
-      }}
+      renderItem={({ item }) => (
+        <PlaceItem
+          {...item}
+          {...props}
+          outStyles={{ width: 296, height: ITEM_HEIGHT, marginRight: 10 }}
+        />
+      )}
     />
   );
 

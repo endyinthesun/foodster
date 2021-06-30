@@ -87,43 +87,38 @@ export default observer(function SearchResult() {
     onBlur();
   }
   return (
-    <>
-      <Animated.View
-        style={[
-          styles.content,
-          {
-            width: width,
-            height: "100%",
-            opacity: contentOpacity,
-            transform: [{ translateY: contentTranslateY }],
-          },
-        ]}
-      >
-        <SafeAreaView style={styles.contentSafeArea}>
-          <View style={styles.contentInner}>
-            {/*<View style={styles.separator} />*/}
-            {searchStore.keyword === "" ? (
-              <View style={styles.imagePlaceholderContainer}>
-                {/*<View style={styles.imagePlaceholder}>*/}
-                <Binoculars width={150} height={150} style={styles.imagePlaceholder} />
-                {/*</View>*/}
-                <Text style={styles.imagePlaceholderText}>
-                  Enter a few words {"\n"}
-                  to search
-                </Text>
+    <Animated.View
+      style={[
+        styles.content,
+        {
+          width: width,
+          height: "100%",
+          opacity: contentOpacity,
+          transform: [{ translateY: contentTranslateY }],
+        },
+      ]}
+    >
+      <SafeAreaView style={styles.contentSafeArea}>
+        <View style={styles.contentInner}>
+          {searchStore.keyword === "" ? (
+            <View style={styles.imagePlaceholderContainer}>
+              <Binoculars width={150} height={150} style={styles.imagePlaceholder} />
+              <Text style={styles.imagePlaceholderText}>
+                Enter a few words {"\n"}
+                to search
+              </Text>
+            </View>
+          ) : (
+            <ScrollView>
+              <View style={styles.searchItem}>
+                <Search style={styles.itemIcon} />
+                <Text>Fake search result 1 </Text>
               </View>
-            ) : (
-              <ScrollView>
-                <View style={styles.searchItem}>
-                  <Search style={styles.itemIcon} />
-                  <Text>Fake search result 1 </Text>
-                </View>
-              </ScrollView>
-            )}
-          </View>
-        </SafeAreaView>
-      </Animated.View>
-    </>
+            </ScrollView>
+          )}
+        </View>
+      </SafeAreaView>
+    </Animated.View>
   );
 });
 
@@ -132,7 +127,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 0,
     bottom: 0,
-    zIndex: 1,
+    zIndex: 2,
   },
   contentSafeArea: {
     flex: 1,

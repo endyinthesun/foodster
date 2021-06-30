@@ -29,7 +29,7 @@ import {
 
 export default observer(function ModalAbout({
   description,
-  phoneNumbers,
+  phoneNumbers = [],
   email,
   workingTime,
   freeFrom,
